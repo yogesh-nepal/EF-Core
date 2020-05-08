@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "r5G3/iqzPVeIr1qfjcdRJ3Bt6mJGl3b9w4MDe3d/m3h/qIhqFcMTS/V0tLm2pY8UtFLvBRFpF52Uyhj70rKcTA==",
+  "success": true,
+  "projectFilePath": "E:\\EFcore\\EFmodels\\EFmodels.csproj",
+  "expectedPackageFiles": [
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",
+    "C:\\Users\\yoges\\.nuget\\packages\\system.componentmodel.annotations\\5.0.0-preview.3.20214.6\\system.componentmodel.annotations.5.0.0-preview.3.20214.6.nupkg.sha512"
+  ],
+  "logs": []
+}

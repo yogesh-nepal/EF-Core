@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "Jy+VLkXRMHZi3XsXLwM2QjMxkOXL0/4Xc3CyjlSp4z94bDgYrt867Xeus6CCsCvbNaljWjII2aoRjM6lBIBoBA==",
+  "success": true,
+  "projectFilePath": "E:\\EFcore\\EFcoreMVC\\EFcoreMVC.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\yoges\\.nuget\\packages\\system.componentmodel.annotations\\5.0.0-preview.3.20214.6\\system.componentmodel.annotations.5.0.0-preview.3.20214.6.nupkg.sha512"
+  ],
+  "logs": []
+}

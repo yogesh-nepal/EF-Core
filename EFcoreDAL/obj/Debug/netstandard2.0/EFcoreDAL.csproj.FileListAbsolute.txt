@@ -1,0 +1,12 @@
+E:\EFcore\EFcoreDAL\obj\Debug\netstandard2.0\EFcoreDAL.csprojAssemblyReference.cache
+E:\EFcore\EFcoreDAL\obj\Debug\netstandard2.0\EFcoreDAL.csproj.CoreCompileInputs.cache
+E:\EFcore\EFcoreDAL\obj\Debug\netstandard2.0\EFcoreDAL.AssemblyInfoInputs.cache
+E:\EFcore\EFcoreDAL\obj\Debug\netstandard2.0\EFcoreDAL.AssemblyInfo.cs
+E:\EFcore\EFcoreDAL\bin\Debug\netstandard2.0\EFcoreDAL.deps.json
+E:\EFcore\EFcoreDAL\bin\Debug\netstandard2.0\EFcoreDAL.dll
+E:\EFcore\EFcoreDAL\bin\Debug\netstandard2.0\EFcoreDAL.pdb
+E:\EFcore\EFcoreDAL\bin\Debug\netstandard2.0\EFmodels.dll
+E:\EFcore\EFcoreDAL\bin\Debug\netstandard2.0\EFmodels.pdb
+E:\EFcore\EFcoreDAL\obj\Debug\netstandard2.0\EFcoreDAL.csproj.CopyComplete
+E:\EFcore\EFcoreDAL\obj\Debug\netstandard2.0\EFcoreDAL.dll
+E:\EFcore\EFcoreDAL\obj\Debug\netstandard2.0\EFcoreDAL.pdb

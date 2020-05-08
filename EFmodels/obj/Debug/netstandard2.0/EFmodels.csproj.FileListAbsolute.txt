@@ -1,0 +1,9 @@
+E:\EFcore\EFmodels\bin\Debug\netstandard2.0\EFmodels.deps.json
+E:\EFcore\EFmodels\bin\Debug\netstandard2.0\EFmodels.dll
+E:\EFcore\EFmodels\bin\Debug\netstandard2.0\EFmodels.pdb
+E:\EFcore\EFmodels\obj\Debug\netstandard2.0\EFmodels.csprojAssemblyReference.cache
+E:\EFcore\EFmodels\obj\Debug\netstandard2.0\EFmodels.csproj.CoreCompileInputs.cache
+E:\EFcore\EFmodels\obj\Debug\netstandard2.0\EFmodels.AssemblyInfoInputs.cache
+E:\EFcore\EFmodels\obj\Debug\netstandard2.0\EFmodels.AssemblyInfo.cs
+E:\EFcore\EFmodels\obj\Debug\netstandard2.0\EFmodels.dll
+E:\EFcore\EFmodels\obj\Debug\netstandard2.0\EFmodels.pdb
