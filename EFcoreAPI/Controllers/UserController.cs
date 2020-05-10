@@ -1,12 +1,6 @@
 using System.Net;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using EFcoreBL.Interface;
-using EFcoreBL.Repository;
 using EFmodels;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EFcoreAPI.Controllers
@@ -18,10 +12,10 @@ namespace EFcoreAPI.Controllers
         private readonly IUser user;
 
         public UserController(IUser user)
-         {
+        {
             this.user = user;
         }
-        
+
         [HttpPost("Insert")]
         public IActionResult Insert(UserModel model)
         {
@@ -29,5 +23,13 @@ namespace EFcoreAPI.Controllers
             user.Save();
             return Ok(HttpStatusCode.OK);
         }
+
+        [HttpGet("ShowAll")]
+        public IActionResult ShowAll()
+        {
+            var list = user.GetAllFromTable();
+            return Ok(list);
+        }
+
     }
 }
