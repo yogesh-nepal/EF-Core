@@ -66,14 +66,6 @@ namespace EFcoreMVC.Controllers
                 {
                     return Redirect(ReturnUrl);
                 }
-                // var ccc = (ClaimsPrincipal)Thread.CurrentPrincipal;
-                // var name = ccc.Claims.Where(c => c.Type == ClaimTypes.Name)
-                //             .Select(c => c.Value).SingleOrDefault();
-                // var roleCookie = ccc.Claims.Where(c => c.Type == ClaimTypes.Role);
-                // foreach (var item in roleCookie)
-                // {
-                //     var role = item.Value;
-                // }
                     return RedirectToAction("ShowAll", "User");
                 }
             else
