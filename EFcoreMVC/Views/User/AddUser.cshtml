@@ -1,0 +1,85 @@
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="main">
+    <div class="main-content">
+        <div class="container-fluid">
+            <div class="panel pannel-ledger">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Add User </h3>
+                </div>
+                <div class="panel-body ">
+                    <form name="userForm">
+                        <div class="col-md-12">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="title"> First Name :</label>
+                                        <input type="text" tabindex="1" class="form-control" placeholder="Enter First Name" id="fname" name="fname">
+                                        <label for="title"> Address :</label>
+                                        <input type="text" tabindex="3" placeholder="Enter Address" class="form-control" id="address" name="address">
+                                        <label for="title"> Email :</label>
+                                        <input type="email" tabindex="5" placeholder="Enter your Email" class="form-control" id="email" name="email">
+                                        <label for="title"> Gender :</label>
+                                        <select tabindex="7" id="selectGender" name="selectGender">
+                                            <option value="0">Select Gender</option>
+                                            <option value="Male">Male</option>
+                                            <option value="Female">Female</option>
+                                            <option value="Others">Others</option>
+                                        </select><br/>
+                                            <label for="title"> Is Active :</label>
+                                            <input type="checkbox" tabindex="8" id="ia"><br/>
+                                        <button style="align-self: center;" type="button" tabindex="10" class="btn btn-primary form-control" id="btnAdd">Add</button>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="title"> Last Name :</label>
+                                        <input type="text" tabindex="2" placeholder="Enter last Name" class="form-control" name="lname" id="lname">
+                                        <label for="title"> Phone Number :</label>
+                                        <input type="text" tabindex="4" placeholder="Phone number" class="form-control" name="pno" id="pno">
+                                        <label for="title"> Password :</label>
+                                        <input type="password" tabindex="6" placeholder="Password" class="form-control" name="pwd" id="pwd">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <p><b><a href="/User/UserList">Back to Home</a></b></p>
+</section>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script>
+$(function(){
+        $("#btnAdd").on("click",function(){
+            debugger;
+            var dataObj = {
+                UserFullName: $("#fname").val() +" "+ $("#lname").val(),
+                UserAddress: $("#address").val(),
+                UserPhone:$("#pno").val(),
+                UserEmailID:$("#email").val(),
+                UserGender:$("#selectGender").val(),
+                IsActive:$("#ia").is(':checked'),
+                UserPassword:$("#pwd").val()
+            }
+            $.ajax({
+                url: "/User/AddUser",
+                type: "POST",
+                data: dataObj,
+                async: false,
+                success: function(){
+                     alert("Successfully Added!");
+                     window.location.href="/User/ShowAll";
+                },
+                error: function(){
+                    alert("Error!")
+                }
+            });
+        });
+    });
+
+</script>
