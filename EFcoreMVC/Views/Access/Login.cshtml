@@ -1,0 +1,18 @@
+@{
+    ViewData["Title"] = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="panel-body">
+<form class="text-center" asp-action="Login" method="post">
+    <h1>Login</h1>
+    <input type="hidden" name="ReturnUrl" value="@ViewBag.Url"/>
+    <div class="form-group">
+        <input type="email" tabindex="1" name="UserEmailID" placeholder="Your Email" id="email">
+    </div>
+    <div class="form-group">
+        <input type="password" tabindex="2" name="UserPassword" placeholder="Your Password" id="pwd">
+    </div>
+    <input type="submit" id="loginbtn" class="btn btn-dark" value="Login" /><br/>
+    <span>@ViewBag.Message</span>
+</form>
+</div>
