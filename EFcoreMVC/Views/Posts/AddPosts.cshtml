@@ -1,0 +1,67 @@
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="main">
+    <div class="main-content">
+        <div class="container-fluid">
+            <div class="panel pannel-ledger">
+                <div class="panel-body ">
+                    <form name="postForm" enctype="multipart/form-data">
+                        <div class="col-md-12">
+                            <div class="row">
+                                <div class="form-group">
+                                    <label for="title">Image Title :</label>
+                                    <input type="text" tabindex="1" class="form-control" placeholder="Enter Title" id="title">
+                                    <label for="title">Description :</label>
+                                    <textarea rows="7" cols="100" tabindex="7" placeholder="Full Description" class="form-control" id="fullDesc"></textarea>
+                                    <br/>
+                                    <label for="title"> Image  :</label>
+                                    <input type="file" name="imageUpload"  id="imageUpload" multiple/>
+                                    <br/>
+                                    <button style="align-self: center;" type="button" tabindex="10" class="btn btn-primary form-control" id="btnAdd">Add</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script>
+        $(function(){
+            $("#btnAdd").on("click",function(){
+                debugger;
+                var inputFile = $("#imageUpload").get(0);
+                var files = inputFile.files;
+                // Create FormData object  
+                var formData = new FormData();
+                // Looping over all files and add it to FormData object  
+                for (var i = 0; i < files.length; i++) {  
+                    formData.append("file", files[i]);  
+                }
+                var dataObj = {
+                    ImageTitle: $("#title").val(),
+                    ImageDescription: $("#fullDesc").val()
+                }
+                formData.append("dataObj",JSON.stringify(dataObj));
+                $.ajax({
+                    url: '/Posts/AddPosts',
+                    type: 'POST',
+                    data: formData,
+                    async: false,
+                    contentType: false,
+                    processData: false,
+                    success: function(){
+                        alert("Post with multiple Added SuccessFully");
+                        window.location.href = "/Post/ShowPosts"
+                    },
+                    error: function(){
+                        alert("Error Adding!")
+                    }
+                });
+            });
+        });
+    </script>

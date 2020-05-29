@@ -6,5 +6,7 @@ namespace EFcoreBL.Interface
     public interface IUser : IGenericRepository<UserModel>
     {
          IEnumerable<UserModel> GetUserWithRole();
+         IEnumerable<UserModel> ShowUserMenu();
+         UserModel UserLogin(string UserEmailID,string UserPassword);
     }
 }

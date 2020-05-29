@@ -1,3 +1,4 @@
+using System.Text;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -6,6 +7,7 @@ using System.Threading.Tasks;
 using EFcoreBL.Interface;
 using EFcoreBL.Repository;
 using EFcoreDAL;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -16,16 +18,18 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.IdentityModel.Tokens;
 
 namespace EFcoreAPI
 {
     public class Startup
     {
+
         public Startup(IConfiguration configuration)
         {
-            Configuration = configuration;
-        }
+            this.Configuration = configuration;
 
+        }
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
@@ -37,10 +41,44 @@ namespace EFcoreAPI
             services.AddDbContext<DatabaseContext>(options =>
                 options.UseSqlServer(_dbConnectionString,
                 x => x.MigrationsAssembly("EFcoreDAL")));
-                // services.AddEntityFrameworkSqlite().AddDbContext<DatabaseContext>(options =>
-                // options.UseSqlite(_dbConnectionString,  
-                // x => x.MigrationsAssembly("EFcoreDAL")));
+            // services.AddEntityFrameworkSqlite().AddDbContext<DatabaseContext>(options =>
+            // options.UseSqlite(_dbConnectionString,  
+            // x => x.MigrationsAssembly("EFcoreDAL")));
+
+            services.AddAuthentication(p=>{
+                p.DefaultAuthenticateScheme=JwtBearerDefaults.AuthenticationScheme;
+                p.DefaultChallengeScheme=JwtBearerDefaults.AuthenticationScheme;
+            })
+            .AddJwtBearer(j =>
+            {
+                j.SaveToken = true;
+                j.TokenValidationParameters = new TokenValidationParameters()
+                {
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["jwtProp:key"])),
+                    ValidIssuer = Configuration["jwtProp:validIssuer"],
+                    ValidAudience = Configuration["jwtProp:validAudience"],
+                   // ClockSkew = TimeSpan.Zero,
+                     RequireExpirationTime=true
+
+
+                };
+            });
+            /* Add Cookie */
+            services.AddDistributedMemoryCache();
+            services.AddSession(s =>
+            {
+                s.IdleTimeout = TimeSpan.FromHours(2);
+                s.Cookie.HttpOnly = true;
+                s.Cookie.IsEssential = true;
+            });
             services.AddScoped<IUser, UserRepository>();
+            services.AddScoped<IRole, RoleRepository>();
+            services.AddScoped<IUserWithRole,UserWithRoleRepository>();
+            services.AddScoped<IMenu,MenuRepository>();
+            services.AddScoped<IUserMenu,UserMenuRepository>();
+            services.AddScoped<ICategory,CategoryRepository>();
+            services.AddScoped<IPost,PostRepository>();
+            services.AddScoped<IPosts,PostsRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -52,10 +90,14 @@ namespace EFcoreAPI
             }
 
             app.UseHttpsRedirection();
+         
 
-            app.UseRouting();
-
+            app.UseAuthentication();
+               app.UseRouting();
             app.UseAuthorization();
+
+            app.UseSession();
+
 
             app.UseEndpoints(endpoints =>
             {

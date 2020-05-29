@@ -1,0 +1,57 @@
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+    
+<section id="about" class="wow fadeInUp">
+    <div class="container">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col"><b>S.N.</b></th>
+                    <th scope="col"><b>Name</b></th>
+                    <th scope="col"><b>Email</b> </th>
+                    <th scope="col"><b>Menu</b> </th>
+                    <th scope="col"><b>Action</b> </th>
+                </tr>
+            </thead>
+            <tbody id="tableBody">
+                @{
+                    var i = 1;
+                    foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@i</td>
+                            <td>@item.UserFullName</td>
+                            <td>@item.UserEmailID</td>
+                            <td>@item.menus.MenuName</td>
+                            <td>
+                                <button class="btn editordelete btn-primary" data-bind="@item.menus.MenuID" data-bindmenu="@item.menus.MenuID" id="btnDeleteUserMenu">Delete User Menu</button>
+                            </td>
+                        </tr>
+                        i++;
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+</section>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script>
+$(function(){
+   $("#tableBody").on("click","#btnDeleteUserMenu",function(){
+        var MenuID = $(this).attr('data-bind');
+        $.ajax({
+            url: '/Menu/DeleteMenuForUser?id='+MenuID,
+            type: "get",
+            async: false,
+            success: function(){
+                alert("Menu Deleted Successfully");
+                window.location.href="/Menu/ShowAll";
+            },
+            error: function(){
+                alert("Error!");
+            }
+        });
+    });
+});
+</script>

@@ -35,8 +35,17 @@ namespace EFcoreAPI.Controllers
         [Authorize(Roles = "Admin")]
         public IActionResult ShowAll()
         {
-           var list = role.GetAllFromTable();
-           return Ok(list);
+            var list = role.GetAllFromTable();
+            return Ok(list);
+        }
+
+        [HttpDelete("Delete/{id}")]
+        [Authorize(Roles = "Admin")]
+        public IActionResult Delete(int id)
+        {
+            role.DeleteFromTable(id);
+            role.Save();
+            return Ok(HttpStatusCode.OK);
         }
     }
 }

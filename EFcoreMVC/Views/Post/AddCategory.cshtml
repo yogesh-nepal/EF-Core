@@ -1,0 +1,32 @@
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<label for="title"> Category :</label>
+<input id="cName" tabindex="1" class="form-control"/>
+ <button type="button" tabindex="2" class="btn btn-primary form-control" id="btnAdd">Add</button>
+ <br/>
+<p><b><a href="/Post/ShowAll">Back to Home</a></b></p>
+ <script src="~/lib/jquery/dist/jquery.min.js"></script>
+ <script>
+     $(function(){
+         $("#btnAdd").on("click",function(){
+             debugger;
+            var dataObj = {
+                 CategoryName: $("#cName").val()    
+             }
+             $.ajax({
+                 url: '/Post/AddCategory',
+                 data: dataObj,
+                 type: 'Post',
+                 async: false,
+                 success: function(){
+                     alert("Added Successfully")
+                     window.location.href="/Post/ShowCategory";
+                 },
+                 error: function(){
+                     alert("Error Adding")
+                 }
+             });
+         });
+     });
+ </script>

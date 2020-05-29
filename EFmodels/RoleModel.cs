@@ -5,10 +5,13 @@ namespace EFmodels
     [Table("tbl_Role")]
     public class RoleModel
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity),Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity), Key]
         public int? RoleID { get; set; }
 
         [Column(TypeName = "nvarchar(max)")]
         public string RoleName { get; set; }
+
+        [NotMapped]
+        public UserWithRoleModel uRoles { get; set; }
     }
 }
