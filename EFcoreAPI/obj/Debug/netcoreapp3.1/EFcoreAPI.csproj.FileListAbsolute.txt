@@ -153,3 +153,15 @@ E:\EFcore\EFcoreAPI\bin\Debug\netcoreapp3.1\ru\Microsoft.CodeAnalysis.Workspaces
 E:\EFcore\EFcoreAPI\bin\Debug\netcoreapp3.1\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
 E:\EFcore\EFcoreAPI\bin\Debug\netcoreapp3.1\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
 E:\EFcore\EFcoreAPI\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+E:\EFcore\EFcoreAPI\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+E:\EFcore\EFcoreAPI\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.JsonWebTokens.dll
+E:\EFcore\EFcoreAPI\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Logging.dll
+E:\EFcore\EFcoreAPI\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.dll
+E:\EFcore\EFcoreAPI\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+E:\EFcore\EFcoreAPI\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Tokens.dll
+E:\EFcore\EFcoreAPI\bin\Debug\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll
+E:\EFcore\EFcoreAPI\bin\Debug\netcoreapp3.1\AutoMapper.dll
+E:\EFcore\EFcoreAPI\bin\Debug\netcoreapp3.1\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+E:\EFcore\EFcoreAPI\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.JsonPatch.dll
+E:\EFcore\EFcoreAPI\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+E:\EFcore\EFcoreAPI\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll

@@ -11,9 +11,6 @@ namespace EFmodels
         [DatabaseGenerated(DatabaseGeneratedOption.Identity), Key]
         public int? UserID { get; set; }
 
-        [Column(TypeName = "int")]
-        public int RoleID { get; set; }
-
         [Column(TypeName = "nvarchar(max)")]
         public string UserFullName { get; set; }
 
@@ -43,5 +40,8 @@ namespace EFmodels
 
         [NotMapped] 
         public RoleModel roles { get; set; }
+
+        [NotMapped] 
+        public MenuModel menus { get; set; }
     }
 }

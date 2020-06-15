@@ -14,6 +14,7 @@ using System.Security.Claims;
 using System.IdentityModel.Tokens.Jwt;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using EFcoreDAL;
 
 namespace EFcoreAPI.Controllers
 {
@@ -54,7 +55,7 @@ namespace EFcoreAPI.Controllers
         }
 
         [HttpGet("GetAllUsers")]
-        [Authorize(Roles="Admin")]
+        [Authorize(Roles = "Admin")]
         public IActionResult GetAllUsers()
         {
             var list = user.GetAllFromTable();
@@ -133,6 +134,5 @@ namespace EFcoreAPI.Controllers
             var _token = new JwtSecurityTokenHandler().WriteToken(_securityToken);
             return _token;
         }
-
     }
 }

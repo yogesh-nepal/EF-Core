@@ -1,0 +1,34 @@
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<label for="title"> Post :</label>
+<select id="postid" tabindex="1" class="form-control"></select>
+<label for="title"> Categories :</label>
+@* <select id="catid" tabindex="2" class="form-control"></select> *@
+@* <input type="checkbox" id="checkCat" name="checkCat">
+  <label id="chkName"></label><br> *@
+ <button type="button" tabindex="3" class="btn btn-primary form-control" id="btnAdd">Add</button>
+ <br/>
+<p><b><a href="/User/ShowAll">Back to Home</a></b></p>
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script>
+        $(function(){
+        function LoadCategory(){
+            $.ajax({
+            url: '/Post/LoadCategory',
+            type: 'get',
+            dataType: 'json',
+            success: function(data){
+                $.each(data,function(i,item){
+                    $("#selectCategory").append('<option value="'+ item.categoryID +'">'+ item.categoryName +'</option>');
+                });
+            },
+            error: function(){
+                alert("Error loading Category!")
+            }
+            });
+        }
+        });
+        
+    </script>

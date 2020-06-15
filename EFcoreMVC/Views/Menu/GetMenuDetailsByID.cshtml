@@ -1,0 +1,68 @@
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="main">
+    <div class="main-content">
+        <div class="container-fluid">
+            <div class="panel pannel-ledger">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Update</h3>
+                </div>
+                <div class="panel-body ">
+                    <form name="menuForm">
+                        <div class="col-md-12">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <input type="hidden" id="mid" value="@Model.MenuID"/>
+                                        <label for="title"> Menu Name :</label>
+                                        <input type="text" value="@Model.MenuName" tabindex="1" class="form-control" id="mname" name="mname">
+                                        <label for="title"> Menu URL :</label>
+                                        <input type="text" value="@Model.MenuURL" tabindex="2" placeholder="Enter Menu URL" class="form-control" id="murl" name="murl">
+                                        <label for="title"> Under :</label>
+                                        <select tabindex="3" id="selectUnder" name="selectUnder">
+                                            <option value="Home">Home</option>
+                                            <option value="0">Others</option>
+                                        </select><br/>
+                                            <label for="title"> Is Active :</label>
+                                            <input type="checkbox" value="@Model.IsActive" tabindex="4" id="ia"><br/>
+                                        <button style="align-self: center;" type="button" tabindex="6" class="btn btn-primary form-control" id="btnUpdateMenu">Update</button>
+                                    </div>
+                                </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <p><b><a href="/Menu/ShowAll">Back to Home</a></b></p>
+</section>
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script>
+    $(function(){
+        $("#btnUpdateMenu").on("click",function(){ 
+            debugger;
+            var dataObj = {
+                MenuID: $("#mid").val(),
+                MenuName: $("#mname").val(),
+                MenuURL: $("#murl").val(),
+                MenuUnder: $("#selectUnder").val(),
+                IsActive: $("#ia").is(':checked')
+            }
+            $.ajax({
+                url: "/Menu/UpdateMenu",
+                type:"POST",
+                data: dataObj,
+                async: false,
+                success: function(){
+                    alert("Successfully added!");
+                    window.location.href="/Menu/ShowAll";
+                },
+                error: function(){
+                    alert("Error!")
+                }
+            });
+        });
+    });
+</script>

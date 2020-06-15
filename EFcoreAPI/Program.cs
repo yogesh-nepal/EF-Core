@@ -21,6 +21,9 @@ namespace EFcoreAPI
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
+                    webBuilder.UseKestrel(options => {
+                        options.Limits.MaxRequestBodySize = 1024000000;
+                    });
                 });
     }
 }

@@ -1,0 +1,93 @@
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<p><b><a class="btn editordelete btn-primary" href="/Post/AddPost">Add Post with or Without Image</a></b></p>
+<p><b><a class="btn editordelete btn-primary" href="/Post/AddPost">Add Category For Post</a></b></p>
+<p><b><a class="btn editordelete btn-primary" href="/Post/ShowCategory">View Categories</a></b></p>
+<b><a class="btn editordelete btn-primary" href="/Posts/AddPosts">Add Post with Multiple Images</a></b>
+<p><b><a class="btn editordelete btn-primary" href="/Posts/AllPosts">View Posts</a></b></p>
+<section id="about" class="wow fadeInUp">
+    <div class="container">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col"><b>S.N.</b></th>
+                    <th scope="col"><b>Title</b></th>
+                    <th scope="col"><b>Category</b> </th>
+                    <th scope="col"><b>Image</b> </th>
+                    <th scope="col"><b>Action</b> </th>
+                </tr>
+            </thead>
+            <tbody id="tableBody">
+                @{
+                    var i = 1;
+                    foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@i</td>
+                            <td>@item.Title</td>
+                            <td>@item.catagories.CategoryName</td>
+                            @{
+                                if(@item.ImageURL != null){
+                                    <td><img id="uImg" src="https://localhost:5001/Resource/@Url.Content(item.ImageURL)" height="100" width="100" alt="your image" /></td>
+                                }
+                                else{
+                                    <td>No Image In this Post</td>
+                                }
+                            }
+                            
+                            <td>
+                                <a class="btn btn-info" href="/Post/GetPostByID/@item.PostID" data-bind="@item.PostID" id="btnUpdate">Update</a>
+                                <button class="btn btn-danger" data-bind="@item.PostID" id="btnDelete">Delete Post</button>
+                                <button class="btn btn-danger" data-bind="@item.PostID" data-bind-cat="@item.catagories.CategoryID" id="btnDeleteCat">Delete From Category</button>
+                            </td>
+                            
+                        </tr>
+                        i++;
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+</section>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script>
+$(function(){
+    $("#tableBody").on("click","#btnDelete",function(){
+            var PostID = $(this).attr('data-bind');
+        $.ajax({
+            url: '/Post/DeletePost?id='+PostID,
+            type: "get",
+            async: false,
+            success: function(){
+                alert("Post Deleted Successfully");
+                window.location.href="/Post/ShowPosts";
+            },
+            error: function(){
+                alert("Error!");
+            }
+        });
+    });
+
+    $("#tableBody").on("click","#btnDeleteCat",function(){
+        var dataObj={
+             CategoryID: $(this).attr('data-bind-cat'),
+             PostID : $(this).attr('data-bind')
+        }
+        $.ajax({
+            url: '/Post/DeletePostFromCategory',
+            data : dataObj,
+            type: "POST",
+            async: false,
+            success: function(){
+                alert("Post Deleted Successfully");
+                window.location.href="/Post/ShowPosts";
+            },
+            error: function(){
+                alert("Error!");
+            }
+        });
+    });
+});
+</script>

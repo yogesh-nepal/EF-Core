@@ -12,17 +12,19 @@ using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using Microsoft.AspNetCore.Hosting;
 
-namespace EFcoreAPI.Controllers 
+namespace EFcoreAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
     public class PostController : ControllerBase
     {
         private readonly IPost ipost;
+        private readonly IPostCategory postCategory;
         private readonly IWebHostEnvironment env;
-        public PostController(IPost _ipost, IWebHostEnvironment _env)
+        public PostController(IPost _ipost, IWebHostEnvironment _env, IPostCategory _postCategory)
         {
             this.ipost = _ipost;
+            this.postCategory = _postCategory;
             this.env = _env;
         }
 
@@ -60,14 +62,12 @@ namespace EFcoreAPI.Controllers
             }
         }
         [HttpGet("ShowPosts")]
-        [Authorize(Roles = "Admin,Author")]
         public IActionResult ShowPost()
         {
-            var list = ipost.GetAllFromTable();
+            var list = ipost.GetAllPosts();
             return Ok(list);
         }
         [HttpGet("GetPostById/{id}")]
-        [Authorize(Roles = "Admin,Author")]
         public IActionResult GetPostByID(int id)
         {
             var data = ipost.GetDataFromId(id);
@@ -80,6 +80,16 @@ namespace EFcoreAPI.Controllers
             var file = HttpContext.Request.Form.Files.FirstOrDefault();
             var formData = Request.Form["formData"];
             var pModel = JsonConvert.DeserializeObject<PostModel>(formData);
+            var fullData = ipost.GetDataFromId(pModel.PostID.Value);
+            var imgURL = fullData.ImageURL;
+            if (imgURL != null)
+            {
+                var fullPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/Resource/", imgURL);
+                if (System.IO.File.Exists(fullPath))
+                {
+                    System.IO.File.Delete(fullPath);
+                }
+            }
             if (file != null)
             {
                 var dir = Path.Combine(env.WebRootPath, "Resource");
@@ -112,8 +122,26 @@ namespace EFcoreAPI.Controllers
         [Authorize(Roles = "Admin,Author")]
         public IActionResult DeletePost(int id)
         {
-            ipost.DeleteFromTable(id);
+            ipost.DeleteFromPostTable(id);
             ipost.Save();
+            return Ok(HttpStatusCode.OK);
+        }
+
+        [HttpPost("DeleteCategoryPost")]
+        [Authorize(Roles = "Admin,Author")]
+        public IActionResult DeletePostCategory(APostCategoryModel model)
+        {
+            postCategory.DeleteFromPostCategoryTable(model);
+            postCategory.Save();
+            return Ok(HttpStatusCode.OK);
+        }
+
+        [HttpDelete("DeletePostFromPostCategoryModel/{id}")]
+        [Authorize(Roles = "Admin,Author")]
+        public IActionResult DeletePostFromPostCategory(int id)
+        {
+            postCategory.DeletePostFromCategoryTable(id);
+            postCategory.Save();
             return Ok(HttpStatusCode.OK);
         }
     }

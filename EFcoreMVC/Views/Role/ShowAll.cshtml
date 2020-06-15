@@ -1,0 +1,56 @@
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    <p><b><a class="btn editordelete btn-primary" href="/Role/AddRole">Add Role</a></b></p>
+    
+<section id="about" class="wow fadeInUp">
+    <div class="container">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col"><b>S.N.</b></th>
+                    <th scope="col"><b>Role</b></th>
+                </tr>
+            </thead>
+            <tbody id="tableBody">
+                @{
+                    var i = 1;
+                    foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.RoleName</td>
+                            <td>
+                                <button class="btn editordelete btn-primary" data-bind="@item.RoleID" id="btnDeleteRole">Delete</button>
+                            </td>
+                        </tr>
+                        i++;
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+<p><b><a href="/User/ShowAll">Back to User</a></b></p>
+</section>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script>
+$(function(){
+   $("#tableBody").on("click","#btnDeleteRole",function(){
+        debugger;
+        var RoleID = $(this).attr('data-bind');
+        $.ajax({
+            url: '/Role/Delete?id='+RoleID,
+            type: "get",
+            async: false,
+            success: function(){
+                alert("Role Deleted Successfully");
+                window.location.href="/Role/ShowAll";
+            },
+            error: function(){
+                alert("Error!");
+            }
+        });
+    });
+
+});
+</script>

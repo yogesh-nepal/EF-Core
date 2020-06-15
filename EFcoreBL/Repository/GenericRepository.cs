@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using EFcoreBL.Interface;
 using EFcoreDAL;
+using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 
 namespace EFcoreBL.Repository
@@ -25,6 +26,7 @@ namespace EFcoreBL.Repository
 
         public IEnumerable<NameOfYourModelClass> GetAllFromTable()
         {
+            
             return table.ToList();
         }
 
@@ -47,7 +49,16 @@ namespace EFcoreBL.Repository
 
         public void Save()
         {
-            databaseContext.SaveChanges();
+            try
+            {
+                databaseContext.SaveChanges();
+            }
+            catch (SqlException ex)
+            {
+                
+                throw ex;
+            }
+            
         }
 
         public IEnumerable<NameOfYourModelClass> SearchFromTable(Func<NameOfYourModelClass, bool> predicate)

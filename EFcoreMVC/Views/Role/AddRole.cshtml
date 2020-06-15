@@ -1,0 +1,32 @@
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<label for="title"> Role :</label>
+<input id="rName" tabindex="1" class="form-control"/>
+ <button type="button" tabindex="2" class="btn btn-primary form-control" id="btnAdd">Add</button>
+ <br/>
+<p><b><a href="/Role/ShowAll">Back to Home</a></b></p>
+ <script src="~/lib/jquery/dist/jquery.min.js"></script>
+ <script>
+     $(function(){
+         $("#btnAdd").on("click",function(){
+             debugger
+            var dataObj = {
+                 RoleName: $("#rName").val()
+             }
+             $.ajax({
+                 url: '/Role/AddRole',
+                 data: dataObj,
+                 type: 'Post',
+                 async: false,
+                 success: function(){
+                     alert("Added Role Successfully")
+                     window.location.href="/Role/ShowAll";
+                 },
+                 error: function(){
+                     alert("Error Adding Role")
+                 }
+             });
+         });
+     });
+ </script>

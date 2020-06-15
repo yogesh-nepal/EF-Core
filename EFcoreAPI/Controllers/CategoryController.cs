@@ -23,7 +23,7 @@ namespace EFcoreAPI.Controllers
         }
 
         [HttpPost("Insert")]
-        [Authorize(Roles="Admin")]
+        [Authorize(Roles="Admin,Author")]
         public IActionResult Insert(CategoryModel model)
         {
             iCategory.InsertIntoTable(model);

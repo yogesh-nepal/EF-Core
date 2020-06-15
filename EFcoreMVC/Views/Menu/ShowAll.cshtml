@@ -1,0 +1,65 @@
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<p><b><a class="btn editordelete btn-primary" href="/Menu/AddMenu">Add Menu</a></b></p>
+<p><b><a class="btn editordelete btn-primary" href="/Menu/AddMenuForUser">Add Menu for user</a></b></p>
+<p><b><a class="btn editordelete btn-primary" href="/Menu/ShowUserMenu">Show Menu for user</a></b></p>
+
+    <p><b><a href="#">#</a></b></p>
+    
+<section id="about" class="wow fadeInUp">
+    <div class="container">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col"><b>S.N.</b></th>
+                    <th scope="col"><b>Menu</b></th>
+                    <th scope="col"><b>Menu URL</b> </th>
+                    <th scope="col"><b>Under</b> </th>
+                    <th scope="col"><b>Is Active</b> </th>
+                </tr>
+            </thead>
+            <tbody id="tableMenuBody">
+                @{
+                    var i = 1;
+                    foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@i</td>
+                            <td>@item.MenuName</td>
+                            <td>@item.MenuURL</td>
+                            <td>@item.MenuUnder</td>
+                            <td>@item.IsActive</td>
+                            <td>
+                                <a href="/Menu/GetMenuDetailsByID/@item.MenuID" class="btn editordelete btn-primary" data-bind="@item.MenuID" id="btnUpdateMenu">Update</a>
+                                <button class="btn editordelete btn-primary" data-bind="@item.MenuID" id="btnDeleteMenu">Delete</button>
+                            </td>
+                        </tr>
+                        i++;
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+</section>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script>
+    $(function(){
+        $("#tableMenuBody").on("click","#btnDeleteMenu",function(){
+            debugger;
+            var MenuID = $(this).attr('data-bind');
+            $.ajax({
+                url: '/Menu/DeleteMenu?id='+MenuID,
+                type:'get',
+                async: false,
+                success: function(){
+                    alert("Deleted successfully");
+                    window.location.href="/Menu/ShowAll";
+                },
+                error: function(){
+                    alert("Error!")
+                }
+            });
+        });
+    });
+</script>

@@ -20521,8 +20521,38 @@
   "RootNamespace": "EFcoreMVC",
   "Documents": [
     {
+      "FilePath": "e:\\EFcore\\EFcoreMVC\\Views\\Menu\\GetMenuDetailsByID.cshtml",
+      "TargetPath": "Views\\Menu\\GetMenuDetailsByID.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "e:\\EFcore\\EFcoreMVC\\Views\\User\\AddUser.cshtml",
+      "TargetPath": "Views\\User\\AddUser.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "e:\\EFcore\\EFcoreMVC\\Views\\Role\\ShowAll.cshtml",
+      "TargetPath": "Views\\Role\\ShowAll.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "e:\\EFcore\\EFcoreMVC\\Views\\Menu\\ShowUserMenu.cshtml",
+      "TargetPath": "Views\\Menu\\ShowUserMenu.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "e:\\EFcore\\EFcoreMVC\\Views\\Menu\\AddMenuForUser.cshtml",
+      "TargetPath": "Views\\Menu\\AddMenuForUser.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "e:\\EFcore\\EFcoreMVC\\Views\\Shared\\Error.cshtml",
       "TargetPath": "Views\\Shared\\Error.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "e:\\EFcore\\EFcoreMVC\\Views\\Post\\AddPost.cshtml",
+      "TargetPath": "Views\\Post\\AddPost.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -20531,8 +20561,78 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "e:\\EFcore\\EFcoreMVC\\Views\\Posts\\GetMultipleImagePostByID.cshtml",
+      "TargetPath": "Views\\Posts\\GetMultipleImagePostByID.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "e:\\EFcore\\EFcoreMVC\\Views\\Posts\\AllPosts.cshtml",
+      "TargetPath": "Views\\Posts\\AllPosts.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "e:\\EFcore\\EFcoreMVC\\Views\\Menu\\ShowAll.cshtml",
+      "TargetPath": "Views\\Menu\\ShowAll.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "e:\\EFcore\\EFcoreMVC\\Views\\Post\\ShowPosts.cshtml",
+      "TargetPath": "Views\\Post\\ShowPosts.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "e:\\EFcore\\EFcoreMVC\\Views\\Menu\\AddMenu.cshtml",
+      "TargetPath": "Views\\Menu\\AddMenu.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "e:\\EFcore\\EFcoreMVC\\Views\\Shared\\_Layout.cshtml",
       "TargetPath": "Views\\Shared\\_Layout.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "e:\\EFcore\\EFcoreMVC\\Views\\Media\\ShowMedia.cshtml",
+      "TargetPath": "Views\\Media\\ShowMedia.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "e:\\EFcore\\EFcoreMVC\\Views\\Access\\AccessDenied.cshtml",
+      "TargetPath": "Views\\Access\\AccessDenied.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "e:\\EFcore\\EFcoreMVC\\Views\\Post\\AddCategory.cshtml",
+      "TargetPath": "Views\\Post\\AddCategory.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "e:\\EFcore\\EFcoreMVC\\Views\\User\\ShowAll.cshtml",
+      "TargetPath": "Views\\User\\ShowAll.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "e:\\EFcore\\EFcoreMVC\\Views\\Posts\\AddPosts.cshtml",
+      "TargetPath": "Views\\Posts\\AddPosts.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "e:\\EFcore\\EFcoreMVC\\Views\\Post\\ShowCategory.cshtml",
+      "TargetPath": "Views\\Post\\ShowCategory.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "e:\\EFcore\\EFcoreMVC\\Views\\Role\\AddRoleForUser.cshtml",
+      "TargetPath": "Views\\Role\\AddRoleForUser.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "e:\\EFcore\\EFcoreMVC\\Views\\Post\\GetPostByID.cshtml",
+      "TargetPath": "Views\\Post\\GetPostByID.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "e:\\EFcore\\EFcoreMVC\\Views\\Access\\Login.cshtml",
+      "TargetPath": "Views\\Access\\Login.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -20546,8 +20646,33 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "e:\\EFcore\\EFcoreMVC\\Views\\Access\\PageNotFound.cshtml",
+      "TargetPath": "Views\\Access\\PageNotFound.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "e:\\EFcore\\EFcoreMVC\\Views\\Post\\CategoryForPost.cshtml",
+      "TargetPath": "Views\\Post\\CategoryForPost.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "e:\\EFcore\\EFcoreMVC\\Views\\Role\\AddRole.cshtml",
+      "TargetPath": "Views\\Role\\AddRole.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "e:\\EFcore\\EFcoreMVC\\Views\\Media\\AddMedia.cshtml",
+      "TargetPath": "Views\\Media\\AddMedia.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "e:\\EFcore\\EFcoreMVC\\Views\\_ViewImports.cshtml",
       "TargetPath": "Views\\_ViewImports.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "e:\\EFcore\\EFcoreMVC\\Views\\Access\\ServerOffline.cshtml",
+      "TargetPath": "Views\\Access\\ServerOffline.cshtml",
       "FileKind": "mvc"
     },
     {

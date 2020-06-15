@@ -1,0 +1,70 @@
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<label for="title"> Email :</label>
+<select id="uid" tabindex="1" class="form-control"></select>
+<label for="title"> Menu :</label>
+<select id="menuid" tabindex="2" class="form-control"></select>
+ <button type="button" tabindex="3" class="btn btn-primary form-control" id="btnAdd">Add</button>
+ <br/>
+<p><b><a href="/Menu/ShowAll">Back to Home</a></b></p>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script>
+     $(function(){
+         debugger;
+         LoadUser();
+         LoadMenu();
+         $("#btnAdd").on("click",function(){
+             debugger
+            var dataObj = {
+                 UserID: $("#uid").val(),
+                 MenuID: $("#menuid").val()
+             }
+             $.ajax({
+                 url: '/Menu/AddMenuForUser',
+                 data: dataObj,
+                 type: 'Post',
+                 async: false,
+                 success: function(){
+                     alert("Added Successfully")
+                     window.location.href="/Menu/ShowUserMenu";
+                 },
+                 error: function(){
+                     alert("Error Adding Role")
+                 }
+             });
+         });
+     });
+     function LoadUser(){
+         $.ajax({
+            url: '/User/GetAllUsers',
+            type: 'get',
+            dataType: 'json',
+            async: false,
+            success: function(data){
+                $("#uid").empty();
+                $("#uid").append('<option value="0">Choose User</option>');
+                $.each(data,function(i,item){
+                    $("#uid").append('<option value="'+ item.userID +'">'+ item.userEmailID +'</option>');
+                });
+            }
+         });
+     }
+     function LoadMenu(){
+         $.ajax({
+            url: '/Menu/LoadMenu', 
+            type: 'get',
+            dataType: 'json',
+            success: function(data){
+                $("#menuid").empty();
+                $("#menuid").append('<option value="0">Choose Menu</option>');
+                $.each(data,function(i,item){
+                    $("#menuid").append('<option value="'+ item.menuID +'">'+ item.menuName +'</option>');
+                });
+            },
+            error: function(){
+                alert("Error loading!")
+            }
+         });
+     }
+ </script>

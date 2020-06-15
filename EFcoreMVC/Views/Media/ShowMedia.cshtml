@@ -1,0 +1,34 @@
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+}
+.grid-item {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 20px;
+  text-align: center;
+}
+</style>
+<p><b><a class="btn btn-edit btn-primary" href="/Media/AddMedia">Add Media</a></b></p>
+<section id="about" class="wow fadeInUp">
+    <div class="container">
+        <div class="grid-container">
+            @{
+                foreach (var item in Model)
+                {
+                    <div class="grid-item">
+                        <video width="300" height="200" controls>
+                            <source src="https://localhost:5001/Videos/@Url.Content(item.MediaPostPath)" id="mediaVideo">
+                        </video>
+                        <label>@item.MediaTitle</label>&nbsp;
+                        <label>@item.PublishDate</label>
+                    </div>
+                }
+            }
+</div>
+    </div>
+</section>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>

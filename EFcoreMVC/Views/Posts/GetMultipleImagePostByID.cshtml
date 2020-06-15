@@ -1,0 +1,33 @@
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="main">
+    <div class="main-content">
+        <div class="container-fluid">
+            <div class="panel pannel-ledger">
+                <div class="panel-body ">
+                    <form name="postForm">
+                        <div class="col-md-12">
+                            <div class="row">
+                                    <div class="form-group">
+                                        <label for="title"> Title :</label>
+                                        <p tabindex="1" class="form-control">@Model.ImageTitle</p><br/>
+                                        <label for="title"> Description :</label>
+                                        <p class="form-control">@Model.ImageDescription</p><br/>
+                                        <label for="title"> Full Description :</label>
+                                        <p class="form-control">@Model.FullDescription</p><br/>
+                                        <label for="title"> Publish Date :</label>
+                                        <p class="form-control">@Model.PublishDate</p><br/>
+                                        <label for="title"> Author Name:</label>
+                                        <p class="form-control">@Model.AuthorName</p><br/>
+                                    </div>
+                                
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <p><b><a href="/Posts/AllPosts">Back to Home</a></b></p>

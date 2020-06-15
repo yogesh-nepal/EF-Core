@@ -1,3 +1,4 @@
+using System.Net.NetworkInformation;
 using System.Threading;
 using System;
 using System.Collections.Generic;
@@ -47,6 +48,7 @@ namespace EFcoreMVC.Controllers
                 /* Use Claims from token for cookie authentication */
                 var claims = new List<Claim>
                 {
+                    new Claim("_token",_token.ToString()),
                     new Claim(ClaimTypes.Name,claimUserName),
                     new Claim(ClaimTypes.Email,claimUserEmail)
                 };
@@ -57,7 +59,7 @@ namespace EFcoreMVC.Controllers
                     var role = item.Value;
                     claims.Add(new Claim(ClaimTypes.Role, role));
                 }
-               
+
                 var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
                 var claimsPrinciple = new ClaimsPrincipal(identity);
                 await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, claimsPrinciple);
@@ -66,18 +68,36 @@ namespace EFcoreMVC.Controllers
                 {
                     return Redirect(ReturnUrl);
                 }
-                    return RedirectToAction("ShowAll", "User");
-                }
-            else
-                {
-                    ViewBag.Message = ("Username and password Incorrect");
-                    return View();
-                }
+                return RedirectToAction("ShowAll", "User");
             }
-            public async Task<IActionResult> Logout()
+            if (response.StatusCode == HttpStatusCode.NotFound)
             {
-                await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
-                return RedirectToAction("Login");
+                ViewBag.Message = ("Username and password Incorrect");
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("ServerOffline", "Access");
             }
         }
+        public async Task<IActionResult> Logout()
+        {
+            await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+            return RedirectToAction("Login");
+        }
+
+        public IActionResult AccessDenied()
+        {
+            return View();
+        }
+        public IActionResult PageNotFound()
+        {
+            return View();
+        }
+        public IActionResult ServerOffline()
+        {
+            return View();
+        }
+
     }
+}

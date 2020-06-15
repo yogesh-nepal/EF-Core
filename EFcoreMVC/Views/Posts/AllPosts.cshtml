@@ -1,0 +1,74 @@
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<p><b><a class="btn editordelete btn-primary" href="/Posts/AddPosts">Add Posts</a></b></p>
+<p><b><a class="btn editordelete btn-primary" href="/Post/AddPost">Add Category For Posts</a></b></p>
+<section id="about" class="wow fadeInUp">
+    <div class="container">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col"><b>S.N.</b></th>
+                    <th scope="col"><b>Title</b></th>
+                    <th scope="col"><b>Description</b></th>
+                    <th scope="col"><b>Author</b></th>
+                    <th scope="col"><b>Image</b> </th>
+                    <th scope="col"><b>Action</b> </th>
+                </tr>
+            </thead>
+            <tbody id="tableBody">
+                @{
+                    var i = 1;
+                    foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@i</td>
+                            <td>@item.ImageTitle</td>
+                            <td>@item.ImageDescription</td>
+                            <td>@item.AuthorName</td>
+                            @{
+                                foreach (var img in @item.MultipleImageData)
+                                {
+                                    <td><img id="uImg" src="https://localhost:5001/Resource/@Url.Content(img.ImagePathData)" height="70" width="80" alt="your image" /></td>
+                                }
+                                foreach (var id in @item.MultipleImageData)
+                                {
+                                    <input type="hidden" class="mid" name="mid" value="@id.MultipleImageDataID" id="mid">
+                                }
+                            }
+                            
+                            <td>
+                                <a class="btn btn-info" href="/Posts/GetMultipleImagePostByID/@item.MultipleImagePostID" data-bind="@item.MultipleImagePostID" id="btnUpdate">View Details</a>
+                                <button class="btn btn-danger" data-bind="@item.MultipleImagePostID" id="btnDelete">Delete</button>
+                            </td>
+                            
+                        </tr>
+                        i++;
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+</section>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script>
+$(function(){
+    $("#tableBody").on("click","#btnDelete",function(){
+        debugger;
+        var MultipleImagePostID = $(this).attr('data-bind');
+        $.ajax({
+            url: '/Posts/DeletePosts?id='+MultipleImagePostID,
+            type: "get",
+            async: false,
+            success: function(){
+                alert("Post Deleted Successfully");
+                window.location.href="/Posts/AllPosts";
+            },
+            error: function(){
+                alert("Error!");
+            }
+        });
+    });
+});
+</script>
