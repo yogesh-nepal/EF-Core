@@ -23,19 +23,11 @@
                                         <br/>
                                         <label for="title"> Image  :</label>
                                         <input type="file" tabindex="5" name="imageUpload"  id="imageUpload"/>
-<<<<<<< HEAD
                                         <img id="uImg" src="https://localhost:5001/Resource/@Url.Content(Model.ImageURL)" height="150" width="150" alt="your image" /><br/>
                                         
                                         @* <label for="title"> Category :</label>
                                         <select tabindex="7" id="selectCategory">
                                         </select><br/> *@
-=======
-                                        <img id="uImg" src="https://localhost:6001/Resource/@Url.Content(Model.ImageURL)" height="150" width="150" alt="your image" /><br/>
-                                        
-                                        <label for="title"> Category :</label>
-                                        <select tabindex="7" id="selectCategory">
-                                        </select><br/>
->>>>>>> ea941148eddb45598dd2392b9b31454ee9217953
                                             <label for="title"> Is Active :</label>
                                             <input type="checkbox" tabindex="8" id="ia"><br/>
                                         <button style="align-self: center;" type="button" tabindex="10" class="btn btn-primary form-control" id="btnAdd">Add</button>
@@ -65,11 +57,7 @@
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script>
         $(function(){
-<<<<<<< HEAD
             //LoadCategory();
-=======
-            LoadCategory();
->>>>>>> ea941148eddb45598dd2392b9b31454ee9217953
             $("#btnAdd").on("click",function(){
             var fileUpload = $("#imageUpload").get(0);  
             var files = fileUpload.files;
@@ -82,11 +70,7 @@
             
             var dataObj = {
                 PostID: $("#pid").val(),
-<<<<<<< HEAD
                 //CategoryID: $("#selectCategory").val(),
-=======
-                CategoryID: $("#selectCategory").val(),
->>>>>>> ea941148eddb45598dd2392b9b31454ee9217953
                 Title: $("#title").val(),    
                 ShortDescription: $("#sDesc").val(),
                 FullDescription: $("#fDesc").val(),
@@ -105,10 +89,6 @@
                 processData: false,
                 success: function(){
                     alert("Updated SuccessFully");
-<<<<<<< HEAD
-=======
-                    //DeleteOldImage();
->>>>>>> ea941148eddb45598dd2392b9b31454ee9217953
                     window.location.href = "/Post/ShowPosts"
                 },
                 error: function(){
@@ -117,26 +97,6 @@
             });
         });
         });
-<<<<<<< HEAD
-=======
-        function LoadCategory(){
-            $.ajax({
-            url: '/Post/LoadCategory',
-            type: 'get',
-            dataType: 'json',
-            success: function(data){
-                $("#selectCategory").empty();
-                $("#selectCategory").append('<option value="@Model.CategoryID">Same as Previous</option>');
-                $.each(data,function(i,item){
-                    $("#selectCategory").append('<option value="'+ item.categoryID +'">'+ item.categoryName +'</option>');
-                });
-            },
-            error: function(){
-                alert("Error loading Category!")
-            }
-            });
-        }
->>>>>>> ea941148eddb45598dd2392b9b31454ee9217953
         function readURL(input) {
             if (input.files && input.files[0]) {
             var reader = new FileReader();
