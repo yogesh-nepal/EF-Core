@@ -1,7 +1,4 @@
-<<<<<<< HEAD
 using System;
-=======
->>>>>>> ea941148eddb45598dd2392b9b31454ee9217953
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -19,7 +16,6 @@ namespace EFmodels
 
         [Column(TypeName = "nvarchar(max)")]
         public string ImageDescription { get; set; }
-<<<<<<< HEAD
         
         [Column(TypeName = "nvarchar(max)")]
         public string FullDescription { get; set; }
@@ -48,9 +44,3 @@ namespace EFmodels
         public virtual ICollection<MultipleImageData> MultipleImageData { get; set; }
     }
 }
-=======
-
-        public virtual ICollection<MultipleImageData> MultipleImageData { get; set; }
-    }
-}
->>>>>>> ea941148eddb45598dd2392b9b31454ee9217953

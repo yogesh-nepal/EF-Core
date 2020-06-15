@@ -1,18 +1,12 @@
-<<<<<<< HEAD
 using System.Net.Cache;
 using System.IO;
-=======
->>>>>>> ea941148eddb45598dd2392b9b31454ee9217953
 using System.Collections.Generic;
 using EFcoreBL.Interface;
 using EFcoreDAL;
 using EFmodels;
 using Microsoft.EntityFrameworkCore;
-<<<<<<< HEAD
 using Microsoft.Data.SqlClient;
 using System.Linq;
-=======
->>>>>>> ea941148eddb45598dd2392b9b31454ee9217953
 
 namespace EFcoreBL.Repository
 {
@@ -27,7 +21,6 @@ namespace EFcoreBL.Repository
         }
         public void DeleteFromPostTable(int id)
         {
-<<<<<<< HEAD
             var data = GetPostDataFromId(id);
             var imgURL = data.ImageURL;
             if (imgURL != null)
@@ -39,14 +32,10 @@ namespace EFcoreBL.Repository
                 }
             }
             postTable.Remove(data);
-=======
-            throw new System.NotImplementedException();
->>>>>>> ea941148eddb45598dd2392b9b31454ee9217953
         }
 
         public IEnumerable<PostModel> GetAllPosts()
         {
-<<<<<<< HEAD
             /* Join tbl_Post, tbl_Category and tbl_PostCategory */
             var postData = from p in databaseContext.PostTable.ToList()
                            join pc in databaseContext.PostCategoryTable.ToList()
@@ -70,19 +59,12 @@ namespace EFcoreBL.Repository
                                UpdatedBy = p.UpdatedBy
                            };
             return postData;
-=======
-            throw new System.NotImplementedException();
->>>>>>> ea941148eddb45598dd2392b9b31454ee9217953
         }
 
         public PostModel GetPostDataFromId(int id)
         {
-<<<<<<< HEAD
             var data = postTable.Find(id);
             return data;
-=======
-            throw new System.NotImplementedException();
->>>>>>> ea941148eddb45598dd2392b9b31454ee9217953
         }
 
         public void InsertIntoPostTable(PostModel model)
@@ -92,11 +74,7 @@ namespace EFcoreBL.Repository
             pm.FullDescription = model.FullDescription;
             pm.ShortDescription = model.ShortDescription;
             pm.ImageURL = model.ImageURL;
-<<<<<<< HEAD
             // pm.CategoryID = model.CategoryID;
-=======
-            pm.CategoryID = model.CategoryID;
->>>>>>> ea941148eddb45598dd2392b9b31454ee9217953
             pm.IsActive = model.IsActive;
             pm.AuthorName = model.AuthorName;
             pm.Tag = model.Tag;
@@ -108,7 +86,6 @@ namespace EFcoreBL.Repository
             }
             catch (System.Exception)
             {
-<<<<<<< HEAD
 
                 throw;
             }
@@ -119,14 +96,6 @@ namespace EFcoreBL.Repository
         ERROR WHILE UPDATING = The instance of entity type 'PostModel' cannot be tracked
         because another instance with the same key value for {'PostID'} is already being tracked. 
         */
-=======
-                
-                throw;
-            }
-            
-        }
-
->>>>>>> ea941148eddb45598dd2392b9b31454ee9217953
         public void UpdatePostTable(PostModel model)
         {
             PostModel pm = new PostModel();
@@ -135,40 +104,23 @@ namespace EFcoreBL.Repository
             pm.FullDescription = model.FullDescription;
             pm.ShortDescription = model.ShortDescription;
             pm.ImageURL = model.ImageURL;
-<<<<<<< HEAD
             // pm.CategoryID = model.CategoryID;
             pm.IsActive = model.IsActive;
             pm.Tag = model.Tag;
             pm.Remarks = model.Remarks;
             pm.UpdatedTime = model.UpdatedTime;
-=======
-            pm.CategoryID = model.CategoryID;
-            pm.IsActive = model.IsActive;
-            pm.Tag = model.Tag;
-            pm.Remarks = model.Remarks;
-            pm.UpdatedTime= model.UpdatedTime;
->>>>>>> ea941148eddb45598dd2392b9b31454ee9217953
             pm.UpdatedBy = model.UpdatedBy;
             try
             {
                 postTable.Attach(pm);
                 databaseContext.Entry(pm).State = EntityState.Modified;
             }
-<<<<<<< HEAD
             catch (SqlException ex)
             {
 
                 throw ex;
             }
 
-=======
-            catch (System.Exception ex)
-            {
-                
-                throw ex;
-            }
-            
->>>>>>> ea941148eddb45598dd2392b9b31454ee9217953
         }
     }
 }

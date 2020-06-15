@@ -44,22 +44,18 @@ namespace EFcoreDAL.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-<<<<<<< HEAD
                     b.Property<string>("AuthorName")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("FullDescription")
                         .HasColumnType("nvarchar(max)");
 
-=======
->>>>>>> ea941148eddb45598dd2392b9b31454ee9217953
                     b.Property<string>("ImageDescription")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ImageTitle")
                         .HasColumnType("nvarchar(max)");
 
-<<<<<<< HEAD
                     b.Property<bool>("IsActive")
                         .HasColumnType("bit");
 
@@ -70,9 +66,6 @@ namespace EFcoreDAL.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Tag")
-=======
-                    b.Property<string>("MultipleImageData")
->>>>>>> ea941148eddb45598dd2392b9b31454ee9217953
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("MultipleImagePostID");
@@ -95,7 +88,6 @@ namespace EFcoreDAL.Migrations
                     b.ToTable("tbl_Category");
                 });
 
-<<<<<<< HEAD
             modelBuilder.Entity("EFmodels.MediaPostModel", b =>
                 {
                     b.Property<int?>("MediaPostID")
@@ -135,8 +127,6 @@ namespace EFcoreDAL.Migrations
                     b.ToTable("tbl_MediaPost");
                 });
 
-=======
->>>>>>> ea941148eddb45598dd2392b9b31454ee9217953
             modelBuilder.Entity("EFmodels.MenuModel", b =>
                 {
                     b.Property<int?>("MenuID")
@@ -161,7 +151,6 @@ namespace EFcoreDAL.Migrations
                     b.ToTable("tbl_Menu");
                 });
 
-<<<<<<< HEAD
             modelBuilder.Entity("EFmodels.MultipleImageData", b =>
                 {
                     b.Property<int?>("MultipleImageDataID")
@@ -185,11 +174,6 @@ namespace EFcoreDAL.Migrations
             modelBuilder.Entity("EFmodels.PostModel", b =>
                 {
                     b.Property<int?>("PostID")
-=======
-            modelBuilder.Entity("EFmodels.PostModel", b =>
-                {
-                    b.Property<int>("PostID")
->>>>>>> ea941148eddb45598dd2392b9b31454ee9217953
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -197,12 +181,6 @@ namespace EFcoreDAL.Migrations
                     b.Property<string>("AuthorName")
                         .HasColumnType("nvarchar(max)");
 
-<<<<<<< HEAD
-=======
-                    b.Property<int>("CategoryID")
-                        .HasColumnType("int");
-
->>>>>>> ea941148eddb45598dd2392b9b31454ee9217953
                     b.Property<string>("FullDescription")
                         .HasColumnType("nvarchar(max)");
 
@@ -212,11 +190,7 @@ namespace EFcoreDAL.Migrations
                     b.Property<bool>("IsActive")
                         .HasColumnType("bit");
 
-<<<<<<< HEAD
                     b.Property<DateTime?>("PublishDate")
-=======
-                    b.Property<DateTime>("PublishDate")
->>>>>>> ea941148eddb45598dd2392b9b31454ee9217953
                         .HasColumnType("datetime");
 
                     b.Property<string>("Remarks")
@@ -325,7 +299,6 @@ namespace EFcoreDAL.Migrations
 
                     b.ToTable("tbl_UserRole");
                 });
-<<<<<<< HEAD
 
             modelBuilder.Entity("EFmodels.MultipleImageData", b =>
                 {
@@ -333,8 +306,6 @@ namespace EFcoreDAL.Migrations
                         .WithMany("MultipleImageData")
                         .HasForeignKey("APostMultipleImagePostID");
                 });
-=======
->>>>>>> ea941148eddb45598dd2392b9b31454ee9217953
 #pragma warning restore 612, 618
         }
     }

@@ -22,12 +22,9 @@ namespace EFcoreMVC
                 {
                     webBuilder.UseStartup<Startup>();
                     webBuilder.UseUrls("https://localhost:6001/");
-<<<<<<< HEAD
                     webBuilder.UseKestrel(options => {
                         options.Limits.MaxRequestBodySize = 1024000000;
                     });
-=======
->>>>>>> ea941148eddb45598dd2392b9b31454ee9217953
                 });
     }
 }

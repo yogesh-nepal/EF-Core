@@ -14,10 +14,7 @@ using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System.Net.Http.Headers;
 using System.Net;
-<<<<<<< HEAD
 using System.Security.Claims;
-=======
->>>>>>> ea941148eddb45598dd2392b9b31454ee9217953
 
 namespace EFcoreMVC.Controllers
 {
@@ -69,18 +66,13 @@ namespace EFcoreMVC.Controllers
             var response = _http.PostAsync("Posts/AddPosts", formData).Result;
             if (response.StatusCode == HttpStatusCode.OK)
             {
-<<<<<<< HEAD
                 return RedirectToAction("AllPosts", "Posts");
-=======
-                return RedirectToAction("ShowPost", "Post");
->>>>>>> ea941148eddb45598dd2392b9b31454ee9217953
             }
             else
             {
                 return RedirectToAction("AccessDenied", "Access");
             }
         }
-<<<<<<< HEAD
 
         [HttpGet]
         public IActionResult AllPosts()
@@ -144,7 +136,5 @@ namespace EFcoreMVC.Controllers
             }
             return RedirectToAction("AccessDenied", "Access");
         }
-=======
->>>>>>> ea941148eddb45598dd2392b9b31454ee9217953
     }
 }

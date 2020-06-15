@@ -1,7 +1,4 @@
-<<<<<<< HEAD
 using System.Net.NetworkInformation;
-=======
->>>>>>> ea941148eddb45598dd2392b9b31454ee9217953
 using System.Security.AccessControl;
 using System.Net;
 using System.Security.Claims;
@@ -28,10 +25,7 @@ namespace EFcoreMVC.Controllers
         {
             client = _client;
         }
-<<<<<<< HEAD
         
-=======
->>>>>>> ea941148eddb45598dd2392b9b31454ee9217953
 
         [HttpGet]
         public IActionResult ShowAll()

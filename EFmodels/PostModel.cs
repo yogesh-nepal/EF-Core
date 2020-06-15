@@ -8,17 +8,10 @@ namespace EFmodels
     public class PostModel
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity), Key]
-<<<<<<< HEAD
         public int? PostID { get; set; }
 
         // [Column(TypeName = "int")]
         // public int CategoryID { get; set; }
-=======
-        public int PostID { get; set; }
-
-        [Column(TypeName = "int")]
-        public int CategoryID { get; set; }
->>>>>>> ea941148eddb45598dd2392b9b31454ee9217953
 
         [Column(TypeName = "nvarchar(max)")]
         public string Title { get; set; }
@@ -30,11 +23,7 @@ namespace EFmodels
         public string FullDescription { get; set; }
 
         [Column(TypeName = "datetime")]
-<<<<<<< HEAD
         public DateTime? PublishDate { get; set; } = DateTime.Now;
-=======
-        public DateTime PublishDate { get; set; } = DateTime.Now;
->>>>>>> ea941148eddb45598dd2392b9b31454ee9217953
 
         [Column(TypeName = "bit")]
         public bool IsActive { get; set; }

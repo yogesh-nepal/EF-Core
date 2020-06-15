@@ -7,10 +7,7 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
-<<<<<<< HEAD
 using Microsoft.AspNetCore.Http.Features;
-=======
->>>>>>> ea941148eddb45598dd2392b9b31454ee9217953
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
@@ -50,7 +47,6 @@ namespace EFcoreMVC
             {
                 options.LoginPath = new PathString("/Access/Login");
                 options.ExpireTimeSpan = TimeSpan.FromHours(2);
-<<<<<<< HEAD
 
             });
             services.Configure<FormOptions>(x =>
@@ -58,11 +54,6 @@ namespace EFcoreMVC
                 x.MultipartBodyLengthLimit = 1024000000;
             });
 
-=======
-                
-            });
-           
->>>>>>> ea941148eddb45598dd2392b9b31454ee9217953
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
