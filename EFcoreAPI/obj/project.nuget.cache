@@ -1,6 +1,10 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "rdngBgqkuDxB+eJVOzN5UIModouldnB3wQFjNQIhJnRsmE9z+xhIi0wmp2q8IEUFBSAtQeeUGaRGffAaNHftxA==",
+=======
+  "dgSpecHash": "V9K5skqgF9nV4WUjQ6gyRYnDqHBS/Zvo0Gws/k0pEgcTB5BrSEJGv4P/d3EO8ZJQJ/mk/xEeKXbCl/jQbO3jxw==",
+>>>>>>> ea941148eddb45598dd2392b9b31454ee9217953
   "success": true,
   "projectFilePath": "E:\\EFcore\\EFcoreAPI\\EFcoreAPI.csproj",
   "expectedPackageFiles": [

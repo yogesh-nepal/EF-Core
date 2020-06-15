@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 using System.Net.Mime;
+=======
+>>>>>>> ea941148eddb45598dd2392b9b31454ee9217953
 using System.Text;
 using System;
 using System.Collections.Generic;
@@ -20,8 +23,11 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
+<<<<<<< HEAD
 using AutoMapper;
 using Microsoft.AspNetCore.Http.Features;
+=======
+>>>>>>> ea941148eddb45598dd2392b9b31454ee9217953
 
 namespace EFcoreAPI
 {
@@ -54,10 +60,16 @@ namespace EFcoreAPI
             // options.UseSqlite(_dbConnectionString,  
             // x => x.MigrationsAssembly("EFcoreDAL")));
 
+<<<<<<< HEAD
             services.AddAuthentication(p =>
             {
                 p.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
                 p.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+=======
+            services.AddAuthentication(p=>{
+                p.DefaultAuthenticateScheme=JwtBearerDefaults.AuthenticationScheme;
+                p.DefaultChallengeScheme=JwtBearerDefaults.AuthenticationScheme;
+>>>>>>> ea941148eddb45598dd2392b9b31454ee9217953
             })
             .AddJwtBearer(j =>
             {
@@ -67,8 +79,13 @@ namespace EFcoreAPI
                     IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["jwtProp:key"])),
                     ValidIssuer = Configuration["jwtProp:validIssuer"],
                     ValidAudience = Configuration["jwtProp:validAudience"],
+<<<<<<< HEAD
                     // ClockSkew = TimeSpan.Zero,
                     RequireExpirationTime = true
+=======
+                   // ClockSkew = TimeSpan.Zero,
+                     RequireExpirationTime=true
+>>>>>>> ea941148eddb45598dd2392b9b31454ee9217953
 
 
                 };
@@ -81,6 +98,7 @@ namespace EFcoreAPI
                 s.Cookie.HttpOnly = true;
                 s.Cookie.IsEssential = true;
             });
+<<<<<<< HEAD
             services.Configure<FormOptions>(x =>
             {
                 x.MultipartBodyLengthLimit = 1024000000;
@@ -98,6 +116,16 @@ namespace EFcoreAPI
             services.AddScoped<IMedia,MediaRepository>();
             services.AddAutoMapper(typeof(MapperProfile));
 
+=======
+            services.AddScoped<IUser, UserRepository>();
+            services.AddScoped<IRole, RoleRepository>();
+            services.AddScoped<IUserWithRole,UserWithRoleRepository>();
+            services.AddScoped<IMenu,MenuRepository>();
+            services.AddScoped<IUserMenu,UserMenuRepository>();
+            services.AddScoped<ICategory,CategoryRepository>();
+            services.AddScoped<IPost,PostRepository>();
+            services.AddScoped<IPosts,PostsRepository>();
+>>>>>>> ea941148eddb45598dd2392b9b31454ee9217953
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -109,10 +137,17 @@ namespace EFcoreAPI
             }
 
             app.UseHttpsRedirection();
+<<<<<<< HEAD
             app.UseStaticFiles();
 
             app.UseAuthentication();
             app.UseRouting();
+=======
+         
+
+            app.UseAuthentication();
+               app.UseRouting();
+>>>>>>> ea941148eddb45598dd2392b9b31454ee9217953
             app.UseAuthorization();
 
             app.UseSession();

@@ -11,6 +11,9 @@ namespace EFmodels
 
         [Column(TypeName = "nvarchar(max)")]
         public string ImagePathData { get; set; }
+<<<<<<< HEAD
         public virtual APostWithMultipleImageModel APost { get; set; }
+=======
+>>>>>>> ea941148eddb45598dd2392b9b31454ee9217953
     }
 }

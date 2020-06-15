@@ -175,19 +175,58 @@ namespace EFcoreMVC.Controllers
         [HttpGet]
         public IActionResult ShowPosts()
         {
+<<<<<<< HEAD
             // IEnumerable<PostModel> catList;
             var _http = client.CreateClient("apiClient");
             var response = _http.GetAsync("Post/ShowPosts").Result;
             var catList = response.Content.ReadAsAsync<IEnumerable<PostModel>>().Result;
             return View(catList);
+=======
+            /* token from cookie */
+            var cookieToken = HttpContext.User.Claims.First(c => c.Type == "_token").Value;
+            IEnumerable<PostModel> catList;
+            var _http = client.CreateClient("apiClient");
+            _http.DefaultRequestHeaders.Authorization =
+                   new AuthenticationHeaderValue("Bearer", cookieToken);
+            var response = _http.GetAsync("Post/ShowPosts").Result;
+            if (response.StatusCode == HttpStatusCode.OK)
+            {
+                catList = response.Content.ReadAsAsync<IEnumerable<PostModel>>().Result;
+                return View(catList);
+            }
+            return RedirectToAction("AccessDenied", "Access");
+>>>>>>> ea941148eddb45598dd2392b9b31454ee9217953
         }
         [HttpGet]
         public IActionResult GetPostByID(int id)
         {
+<<<<<<< HEAD
             var _http = client.CreateClient("apiClient");
             var response = _http.GetAsync("Post/GetPostByID/" + id).Result;
             var list = response.Content.ReadAsAsync<PostModel>().Result;
             return View(list);
+=======
+            /* token from cookie */
+            var cookieToken = HttpContext.User.Claims.First(c => c.Type == "_token").Value;
+            var cookieRole = HttpContext.User.Claims.Where(c => c.Type == ClaimTypes.Role);
+            foreach (var item in cookieRole)
+            {
+                var role = item.Value;
+                if (role == "Admin" || role == "Author")
+                {
+                    var _http = client.CreateClient("apiClient");
+                    _http.DefaultRequestHeaders.Authorization =
+                    new AuthenticationHeaderValue("Bearer", cookieToken);
+                    var response = _http.GetAsync("Post/GetPostByID/" + id).Result;
+                    if (response.StatusCode == HttpStatusCode.OK)
+                    {
+                        var list = response.Content.ReadAsAsync<PostModel>().Result;
+                        return View(list);
+                    }
+                }
+            }
+            return RedirectToAction("AccessDenied", "Access");
+>>>>>>> ea941148eddb45598dd2392b9b31454ee9217953
         }
 
         [HttpPost]
@@ -254,6 +293,7 @@ namespace EFcoreMVC.Controllers
             _http.DefaultRequestHeaders.Authorization =
             new AuthenticationHeaderValue("Bearer", cookieToken);
             var response = _http.DeleteAsync("Post/DeletePost/" + id).Result;
+<<<<<<< HEAD
             var postResponse = _http.DeleteAsync("Post/DeletePostFromPostCategoryModel/"+id).Result;
             if (response.StatusCode == HttpStatusCode.OK)
             {
@@ -280,6 +320,8 @@ namespace EFcoreMVC.Controllers
             _http.DefaultRequestHeaders.Authorization =
             new AuthenticationHeaderValue("Bearer", cookieToken);
             var response = _http.PostAsJsonAsync("Post/DeleteCategoryPost",model).Result;
+=======
+>>>>>>> ea941148eddb45598dd2392b9b31454ee9217953
             if (response.StatusCode == HttpStatusCode.OK)
             {
                 return RedirectToAction("ShowPosts", "Post");

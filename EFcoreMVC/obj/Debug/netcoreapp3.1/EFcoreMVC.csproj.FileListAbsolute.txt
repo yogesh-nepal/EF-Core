@@ -167,8 +167,11 @@ E:\EFcore\EFcoreMVC\obj\Debug\netcoreapp3.1\Razor\Views\Post\AddPost.cshtml.g.cs
 E:\EFcore\EFcoreMVC\obj\Debug\netcoreapp3.1\Razor\Views\Post\ShowPosts.cshtml.g.cs
 E:\EFcore\EFcoreMVC\obj\Debug\netcoreapp3.1\Razor\Views\Post\GetPostByID.cshtml.g.cs
 E:\EFcore\EFcoreMVC\obj\Debug\netcoreapp3.1\Razor\Views\Posts\AddPosts.cshtml.g.cs
+<<<<<<< HEAD
 E:\EFcore\EFcoreMVC\obj\Debug\netcoreapp3.1\Razor\Views\Posts\AllPosts.cshtml.g.cs
 E:\EFcore\EFcoreMVC\obj\Debug\netcoreapp3.1\Razor\Views\Posts\GetMultipleImagePostByID.cshtml.g.cs
 E:\EFcore\EFcoreMVC\obj\Debug\netcoreapp3.1\Razor\Views\Post\CategoryForPost.cshtml.g.cs
 E:\EFcore\EFcoreMVC\obj\Debug\netcoreapp3.1\Razor\Views\Media\AddMedia.cshtml.g.cs
 E:\EFcore\EFcoreMVC\obj\Debug\netcoreapp3.1\Razor\Views\Media\ShowMedia.cshtml.g.cs
+=======
+>>>>>>> ea941148eddb45598dd2392b9b31454ee9217953

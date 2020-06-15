@@ -63,9 +63,15 @@ namespace EFcoreBL.Repository
                        on um.MenuID equals m.MenuID
                        select new UserModel()
                        {
+<<<<<<< HEAD
                            UserFullName = u.UserFullName,
                            UserEmailID = u.UserEmailID,
                            menus = m
+=======
+                           UserFullName= u.UserFullName,
+                           UserEmailID=u.UserEmailID,
+                           menus=m
+>>>>>>> ea941148eddb45598dd2392b9b31454ee9217953
                        };
             return data;
         }
@@ -92,14 +98,22 @@ namespace EFcoreBL.Repository
                                {
                                    uRoles = u,
                                    RoleID = r.RoleID,
+<<<<<<< HEAD
                                    RoleName = r.RoleName
+=======
+                                   RoleName = r.RoleName 
+>>>>>>> ea941148eddb45598dd2392b9b31454ee9217953
                                };
 
                 /* Returns one or more roles of user */
                 var loginRole = from items in roleData
                                 where items.uRoles.UserID == loginData.UserID
                                 select items;
+<<<<<<< HEAD
 
+=======
+                                
+>>>>>>> ea941148eddb45598dd2392b9b31454ee9217953
                 loginData.ListOfRoles = loginRole.ToList();
             }
             return loginData;

@@ -31,8 +31,12 @@ namespace EFcoreMVC.Controllers
             return View();
         }
         [AllowAnonymous, HttpPost]
-        public async Task<IActionResult> Login(string UserEmailID, string UserPassword, UserModel model, string ReturnUrl = null)
+        public async Task<IActionResult> Login( string UserEmailID, string UserPassword, UserModel model,string ReturnUrl=null)
         {
+            // if (User.Identity.IsAuthenticated)
+            // {
+            //     return RedirectToAction("ShowAll", "User");
+            // }
             var _http = client.CreateClient("apiClient");
             var response = _http.PostAsJsonAsync("User/UserLogin", model).GetAwaiter().GetResult();
             if (response.StatusCode == HttpStatusCode.OK)

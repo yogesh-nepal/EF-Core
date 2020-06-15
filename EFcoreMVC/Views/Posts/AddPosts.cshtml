@@ -10,14 +10,20 @@
                     <form name="postForm" enctype="multipart/form-data">
                         <div class="col-md-12">
                             <div class="row">
+<<<<<<< HEAD
                                 <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="title">Title :</label>
+=======
+                                <div class="form-group">
+                                    <label for="title">Image Title :</label>
+>>>>>>> ea941148eddb45598dd2392b9b31454ee9217953
                                     <input type="text" tabindex="1" class="form-control" placeholder="Enter Title" id="title">
                                     <label for="title">Description :</label>
                                     <textarea rows="7" cols="100" tabindex="7" placeholder="Full Description" class="form-control" id="fullDesc"></textarea>
                                     <br/>
                                     <label for="title"> Image  :</label>
+<<<<<<< HEAD
                                     <input type="file" name="imageUpload"  id="imageUpload" accept="image/*" multiple/>
                                     <br/>
                                     <label for="title"> Is Active :</label>
@@ -37,6 +43,12 @@
                                         <input type="text" tabindex="2" placeholder="Remarks" class="form-control" id="remarks">
                                     </div>
                                 </div>
+=======
+                                    <input type="file" name="imageUpload"  id="imageUpload" multiple/>
+                                    <br/>
+                                    <button style="align-self: center;" type="button" tabindex="10" class="btn btn-primary form-control" id="btnAdd">Add</button>
+                                </div>
+>>>>>>> ea941148eddb45598dd2392b9b31454ee9217953
                             </div>
                         </div>
                     </form>
@@ -44,6 +56,10 @@
             </div>
         </div>
     </div>
+<<<<<<< HEAD
+=======
+    
+>>>>>>> ea941148eddb45598dd2392b9b31454ee9217953
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script>
         $(function(){
@@ -59,12 +75,16 @@
                 }
                 var dataObj = {
                     ImageTitle: $("#title").val(),
+<<<<<<< HEAD
                     ImageDescription: $("#fullDesc").val(),
                     FullDescription: $("#fullDesc").val(),
                     AuthorName: $("#aName").val(),
                     Tag: $("#tag").val(),
                     Remarks: $("#remarks").val(),
                     IsActive: $("#ia").is(':checked'),
+=======
+                    ImageDescription: $("#fullDesc").val()
+>>>>>>> ea941148eddb45598dd2392b9b31454ee9217953
                 }
                 formData.append("dataObj",JSON.stringify(dataObj));
                 $.ajax({
@@ -76,7 +96,11 @@
                     processData: false,
                     success: function(){
                         alert("Post with multiple Added SuccessFully");
+<<<<<<< HEAD
                         window.location.href = "/Posts/AllPosts"
+=======
+                        window.location.href = "/Post/ShowPosts"
+>>>>>>> ea941148eddb45598dd2392b9b31454ee9217953
                     },
                     error: function(){
                         alert("Error Adding!")

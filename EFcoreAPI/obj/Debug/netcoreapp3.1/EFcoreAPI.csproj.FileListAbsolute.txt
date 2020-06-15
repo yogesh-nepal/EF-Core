@@ -160,8 +160,11 @@ E:\EFcore\EFcoreAPI\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.dl
 E:\EFcore\EFcoreAPI\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 E:\EFcore\EFcoreAPI\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Tokens.dll
 E:\EFcore\EFcoreAPI\bin\Debug\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll
+<<<<<<< HEAD
 E:\EFcore\EFcoreAPI\bin\Debug\netcoreapp3.1\AutoMapper.dll
 E:\EFcore\EFcoreAPI\bin\Debug\netcoreapp3.1\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 E:\EFcore\EFcoreAPI\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.JsonPatch.dll
 E:\EFcore\EFcoreAPI\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
 E:\EFcore\EFcoreAPI\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll
+=======
+>>>>>>> ea941148eddb45598dd2392b9b31454ee9217953

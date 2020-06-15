@@ -1,6 +1,9 @@
+<<<<<<< HEAD
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+=======
+>>>>>>> ea941148eddb45598dd2392b9b31454ee9217953
 using EFcoreBL.Interface;
 using EFcoreDAL;
 using EFmodels;
@@ -17,6 +20,7 @@ namespace EFcoreBL.Repository
             databaseContext = _databaseContext;
             postsTable = _databaseContext.Set<APostWithMultipleImageModel>();
         }
+<<<<<<< HEAD
 
         public void DeleteFromPostsTable(int id)
         {
@@ -65,5 +69,23 @@ namespace EFcoreBL.Repository
         {
             databaseContext.SaveChanges();
         }
+=======
+        public void InsertIntoPostsTable(APostWithMultipleImageModel model)
+        {
+            APostWithMultipleImageModel mpModel = new APostWithMultipleImageModel();
+            mpModel.ImageTitle = model.ImageTitle;
+            mpModel.ImageDescription = model.ImageDescription;
+            mpModel.MultipleImageData = model.MultipleImageData;
+            try
+            {
+                postsTable.Add(mpModel);
+            }
+            catch (System.Exception ex)
+            {
+                
+                throw ex;
+            }
+        }
+>>>>>>> ea941148eddb45598dd2392b9b31454ee9217953
     }
 }
