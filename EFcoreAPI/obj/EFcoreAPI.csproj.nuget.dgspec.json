@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\EFcore\\EFcoreAPI\\EFcoreAPI.csproj": {}
+    "E:\\EFcore\\EFCoreAPI\\EFcoreAPI.csproj": {}
   },
   "projects": {
-    "E:\\EFcore\\EFcoreAPI\\EFcoreAPI.csproj": {
+    "E:\\EFcore\\EFCoreAPI\\EFcoreAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\EFcore\\EFcoreAPI\\EFcoreAPI.csproj",
+        "projectUniqueName": "E:\\EFcore\\EFCoreAPI\\EFcoreAPI.csproj",
         "projectName": "EFcoreAPI",
-        "projectPath": "E:\\EFcore\\EFcoreAPI\\EFcoreAPI.csproj",
+        "projectPath": "E:\\EFcore\\EFCoreAPI\\EFcoreAPI.csproj",
         "packagesPath": "C:\\Users\\yoges\\.nuget\\packages\\",
-        "outputPath": "E:\\EFcore\\EFcoreAPI\\obj\\",
+        "outputPath": "E:\\EFcore\\EFCoreAPI\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -51,7 +51,6 @@
       "frameworks": {
         "netcoreapp3.1": {
           "dependencies": {
-<<<<<<< HEAD
             "AutoMapper": {
               "target": "Package",
               "version": "[9.0.0, )"
@@ -67,11 +66,6 @@
             "Microsoft.AspNetCore.Mvc.NewtonsoftJson": {
               "target": "Package",
               "version": "[3.1.4, )"
-=======
-            "Microsoft.AspNetCore.Authentication.JwtBearer": {
-              "target": "Package",
-              "version": "[5.0.0-preview.3.20215.14, )"
->>>>>>> ea941148eddb45598dd2392b9b31454ee9217953
             },
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
