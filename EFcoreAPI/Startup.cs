@@ -75,6 +75,7 @@ namespace EFcoreAPI
             });
             /* Add Cookie */
             services.AddDistributedMemoryCache();
+            services.AddMemoryCache();
             services.AddSession(s =>
             {
                 s.IdleTimeout = TimeSpan.FromHours(2);
