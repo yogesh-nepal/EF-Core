@@ -15,6 +15,9 @@ using System.IdentityModel.Tokens.Jwt;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using EFcoreDAL;
+using System.IO;
+using Microsoft.VisualBasic.FileIO;
+using Microsoft.Extensions.Caching.Memory;
 
 namespace EFcoreAPI.Controllers
 {
@@ -23,18 +26,26 @@ namespace EFcoreAPI.Controllers
     public class UserController : ControllerBase
     {
         private readonly IUser user;
+        private readonly IMemoryCache _cache;
         public IConfiguration configuration;
 
-        public UserController(IUser user, IConfiguration _configuration)
+        public UserController(IUser user, IConfiguration _configuration, IMemoryCache cache)
         {
             this.user = user;
             this.configuration = _configuration;
+            this._cache = cache;
         }
 
         [HttpPost("Insert")]
         [Authorize(Roles = "Admin")]
         public IActionResult Insert(UserModel uModel)
         {
+            var data = user.GetAllFromTable();
+            var dataexixts = data.Where(x => x.UserEmailID == uModel.UserEmailID).FirstOrDefault();
+            if (dataexixts != null)
+            {
+                return BadRequest();
+            }
             user.InsertIntoTable(uModel);
             user.Save();
             return Ok(HttpStatusCode.OK);
@@ -58,7 +69,12 @@ namespace EFcoreAPI.Controllers
         [Authorize(Roles = "Admin")]
         public IActionResult GetAllUsers()
         {
-            var list = user.GetAllFromTable();
+            if (_cache.TryGetValue("Get-All-Users", out IEnumerable<UserModel> list))
+            {
+                return Ok(list);
+            }
+            list = user.GetAllFromTable();
+            _cache.Set("Get-All-Users", list, TimeSpan.FromDays(7));
             return Ok(list);
         }
 
@@ -66,7 +82,12 @@ namespace EFcoreAPI.Controllers
         [Authorize(Roles = "Admin")]
         public IActionResult GetAll()
         {
-            var list = user.GetUserWithRole();
+            if (_cache.TryGetValue("show-key", out IEnumerable<UserModel> list))
+            {
+                return Ok(list);
+            }
+            list = user.GetUserWithRole();
+            _cache.Set("show-key", list, TimeSpan.FromDays(7));
             return Ok(list);
         }
 
@@ -133,6 +154,45 @@ namespace EFcoreAPI.Controllers
             );
             var _token = new JwtSecurityTokenHandler().WriteToken(_securityToken);
             return _token;
+        }
+
+        [HttpPost("FromCSV")]
+        [Authorize(Roles = "Admin")]
+        public IActionResult FromCSV([FromForm] UserModel model)
+        {
+            var file = HttpContext.Request.Form.Files.FirstOrDefault();
+            using (TextFieldParser csvParser = new TextFieldParser(file.OpenReadStream()))
+            {
+                csvParser.CommentTokens = new string[] { "#" };
+                csvParser.SetDelimiters(new string[] { "," });
+                csvParser.HasFieldsEnclosedInQuotes = true;
+                // Skip the row with the column names
+                csvParser.ReadLine();
+                List<UserModel> uList = new List<UserModel>();
+                while (!csvParser.EndOfData)
+                {
+                    // Read current line fields, pointer moves to the next line.
+                    string[] fields = csvParser.ReadFields();
+                    var data = user.GetAllFromTable();
+                    var dataExists = data.Where(x => x.UserEmailID == fields[1]).FirstOrDefault();
+                    if (dataExists == null)
+                    {
+                        uList.Add(new UserModel
+                        {
+                            UserFullName = fields[0],
+                            UserEmailID = fields[1],
+                            UserPassword = fields[2],
+                            UserAddress = fields[3],
+                            UserGender = fields[4],
+                            UserPhone = fields[5],
+                            IsActive = bool.Parse(fields[6])
+                        });
+                    }
+                }
+                user.InsertFromCSV(uList);
+                user.Save();
+            }
+            return Ok(HttpStatusCode.OK);
         }
     }
 }
