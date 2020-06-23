@@ -1,0 +1,73 @@
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<label for="title"> Post :</label>
+<select id="pid" tabindex="1" class="form-control"></select>
+<label for="title"> Category :</label>
+<select id="catid" tabindex="2" class="form-control"></select>
+<br/>
+ <button type="button" tabindex="3" class="btn btn-primary form-control" id="btnAdd">Add</button>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script>
+        $(function(){
+            LoadCategory();
+            LoadPost();
+            $("#btnAdd").on("click",function(){
+                debugger;
+                var dataObj = {
+                    PostID: $("#pid").val(),
+                    CategoryID: $("#catid").val()
+                }
+                $.ajax({
+                 url: '/Post/AddPostCategory',
+                 data: dataObj,
+                 type: 'Post',
+                 async: false,
+                 success: function(){
+                     alert("Success")
+                     window.location.href="/Post/ShowPosts";
+                 },
+                 error: function(){
+                     alert("Error!")
+                 }
+             });
+            });
+
+        function LoadCategory(){
+            $.ajax({
+            url: '/Post/LoadCategory',
+            type: 'get',
+            dataType: 'json',
+            success: function(data){
+                $("#catid").empty();
+                $("#catid").append('<option value="0">Choose Category</option>');
+                $.each(data,function(i,item){
+                    $("#catid").append('<option value="'+ item.categoryID +'">'+ item.categoryName +'</option>');
+                });
+            },
+            error: function(){
+                alert("Error loading Category!")
+            }
+            });
+        }
+
+        function LoadPost(){
+            $.ajax({
+            url: '/Post/LoadPosts',
+            type: 'get',
+            dataType: 'json',
+            success: function(data){
+                $("#pid").empty();
+                $("#pid").append('<option value="0">Choose Post</option>');
+                $.each(data,function(i,item){
+                    $("#pid").append('<option value="'+ item.postID +'">'+ item.title +'</option>');
+                });
+            },
+            error: function(){
+                alert("Error loading post!")
+            }
+            });
+        }
+        });
+        
+    </script>

@@ -76,7 +76,7 @@ namespace EFcoreMVC.Controllers
             }
             if (response.StatusCode == HttpStatusCode.NotFound)
             {
-                ViewBag.Message = ("Username and password Incorrect");
+                ViewBag.Message = ("Username or password Incorrect");
                 return View();
             }
             else

@@ -158,7 +158,6 @@ E:\EFcore\EFcoreMVC\obj\Debug\netcoreapp3.1\Razor\Views\Menu\AddMenu.cshtml.g.cs
 E:\EFcore\EFcoreMVC\obj\Debug\netcoreapp3.1\Razor\Views\Menu\ShowAll.cshtml.g.cs
 E:\EFcore\EFcoreMVC\obj\Debug\netcoreapp3.1\Razor\Views\Menu\GetMenuDetailsByID.cshtml.g.cs
 E:\EFcore\EFcoreMVC\obj\Debug\netcoreapp3.1\Razor\Views\Role\AddRole.cshtml.g.cs
-E:\EFcore\EFcoreMVC\obj\Debug\netcoreapp3.1\Razor\Views\Role\ShowAll.cshtml.g.cs
 E:\EFcore\EFcoreMVC\obj\Debug\netcoreapp3.1\Razor\Views\Menu\AddMenuForUser.cshtml.g.cs
 E:\EFcore\EFcoreMVC\obj\Debug\netcoreapp3.1\Razor\Views\Menu\ShowUserMenu.cshtml.g.cs
 E:\EFcore\EFcoreMVC\obj\Debug\netcoreapp3.1\Razor\Views\Post\AddCategory.cshtml.g.cs
@@ -175,3 +174,6 @@ E:\EFcore\EFcoreMVC\obj\Debug\netcoreapp3.1\Razor\Views\Media\AddMedia.cshtml.g.
 E:\EFcore\EFcoreMVC\obj\Debug\netcoreapp3.1\Razor\Views\Media\ShowMedia.cshtml.g.cs
 =======
 >>>>>>> ea941148eddb45598dd2392b9b31454ee9217953
+E:\EFcore\EFcoreMVC\obj\Debug\netcoreapp3.1\Razor\Views\Post\AddPostCategory.cshtml.g.cs
+E:\EFcore\EFcoreMVC\obj\Debug\netcoreapp3.1\Razor\Views\User\ShowUser.cshtml.g.cs
+E:\EFcore\EFcoreMVC\obj\Debug\netcoreapp3.1\Razor\Views\Role\ShowAll.cshtml.g.cs

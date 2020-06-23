@@ -54,6 +54,13 @@ namespace EFcoreBL.Repository
             return data;
         }
 
+        public void InsertFromCSV(List<UserModel> model)
+        {
+            /*Uploading from csv*/
+            /* Tested with 10001 Records */
+            databaseContext.AddRange(model);
+        }
+
         public IEnumerable<UserModel> ShowUserMenu()
         {
             var data = from u in databaseContext.UserTable.ToList()

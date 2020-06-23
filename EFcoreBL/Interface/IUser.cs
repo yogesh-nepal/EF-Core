@@ -8,5 +8,6 @@ namespace EFcoreBL.Interface
          IEnumerable<UserModel> GetUserWithRole();
          IEnumerable<UserModel> ShowUserMenu();
          UserModel UserLogin(string UserEmailID,string UserPassword);
+         void InsertFromCSV(List<UserModel> model);
     }
 }

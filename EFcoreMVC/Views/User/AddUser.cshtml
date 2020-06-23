@@ -1,7 +1,11 @@
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
+<i>tested with 10001 records</i>
+<h2><b>Upload from CSV file</b></h2>
+<label for="title"> CSV File  :</label>
+<input type="file" name="csvUpload" accept=".csv"  id="csvUpload"/>
+<button style="align-self: center;" type="button" class="btn btn-primary" id="btnAddCSV">Submit</button>
 <section class="main">
     <div class="main-content">
         <div class="container-fluid">
@@ -31,6 +35,7 @@
                                             <label for="title"> Is Active :</label>
                                             <input type="checkbox" tabindex="8" id="ia"><br/>
                                         <button style="align-self: center;" type="button" tabindex="10" class="btn btn-primary form-control" id="btnAdd">Add</button>
+                                        <span style="color: red;">@ViewBag.Message</span>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
@@ -72,13 +77,39 @@ $(function(){
                 data: dataObj,
                 async: false,
                 success: function(){
-                     alert("Successfully Added!");
-                     window.location.href="/User/ShowAll";
+                        alert("Successfully Added");
+                        window.location.href="/User/ShowAll";
                 },
                 error: function(){
                     alert("Error!")
                 }
             });
+        });
+        $("#btnAddCSV").on("click",function(){
+            debugger;
+            var inputFile = $("#csvUpload").get(0);
+            var files = inputFile.files;
+            // Create FormData object  
+            var formData = new FormData();
+            // Looping over all files and add it to FormData object  
+            for (var i = 0; i < files.length; i++) {  
+                formData.append("file", files[i]);  
+            }
+            $.ajax({
+                    url: '/User/FromCSV',
+                    type: 'POST',
+                    data: formData,
+                    async: false,
+                    contentType: false,
+                    processData: false,
+                    success: function(){
+                        alert("User Added From CSV");
+                        window.location.href = "/User/ShowAll"
+                    },
+                    error: function(){
+                        alert("Error Adding!")
+                    }
+                });
         });
     });
 

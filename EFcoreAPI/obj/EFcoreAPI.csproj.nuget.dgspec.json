@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\EFcore\\EFCoreAPI\\EFcoreAPI.csproj": {}
+    "E:\\EFcore\\EFcoreAPI\\EFcoreAPI.csproj": {}
   },
   "projects": {
-    "E:\\EFcore\\EFCoreAPI\\EFcoreAPI.csproj": {
+    "E:\\EFcore\\EFcoreAPI\\EFcoreAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\EFcore\\EFCoreAPI\\EFcoreAPI.csproj",
+        "projectUniqueName": "E:\\EFcore\\EFcoreAPI\\EFcoreAPI.csproj",
         "projectName": "EFcoreAPI",
-        "projectPath": "E:\\EFcore\\EFCoreAPI\\EFcoreAPI.csproj",
+        "projectPath": "E:\\EFcore\\EFcoreAPI\\EFcoreAPI.csproj",
         "packagesPath": "C:\\Users\\yoges\\.nuget\\packages\\",
-        "outputPath": "E:\\EFcore\\EFCoreAPI\\obj\\",
+        "outputPath": "E:\\EFcore\\EFcoreAPI\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -58,6 +58,10 @@
             "AutoMapper.Extensions.Microsoft.DependencyInjection": {
               "target": "Package",
               "version": "[7.0.0, )"
+            },
+            "EFCore.BulkExtensions": {
+              "target": "Package",
+              "version": "[3.1.1, )"
             },
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",

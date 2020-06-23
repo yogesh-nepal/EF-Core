@@ -1,3 +1,4 @@
+using System.IO.Compression;
 using System.Net;
 using System.IO;
 using System;
@@ -61,6 +62,14 @@ namespace EFcoreAPI.Controllers
                 return Ok(HttpStatusCode.OK);
             }
         }
+
+        [HttpGet("ShowPost")]
+        public IActionResult ShowPosts()
+        {
+            var list = ipost.GetAllFromTable();
+            return Ok(list);
+        }
+
         [HttpGet("ShowPosts")]
         public IActionResult ShowPost()
         {
@@ -143,6 +152,24 @@ namespace EFcoreAPI.Controllers
             postCategory.DeletePostFromCategoryTable(id);
             postCategory.Save();
             return Ok(HttpStatusCode.OK);
+        }
+        [HttpPost("AddPostCategory")]
+        [Authorize(Roles = "Admin,Author")]
+        public IActionResult AddPostCategory(APostCategoryModel model)
+        {
+            var data = postCategory.GetAllFromTable();
+            var oldData = from item in data
+                          where item.CategoryID.Equals(model.CategoryID) &&
+                          item.PostID.Equals(model.PostID)
+                          select item;
+            var d = oldData.FirstOrDefault();
+            if (d == null)
+            {
+                postCategory.InsertIntoTable(model);
+                postCategory.Save();
+                return Ok(HttpStatusCode.OK);
+            }
+            return BadRequest();
         }
     }
 }

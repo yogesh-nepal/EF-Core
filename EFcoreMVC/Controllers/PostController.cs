@@ -142,7 +142,7 @@ namespace EFcoreMVC.Controllers
                 var response = _http.PostAsync("Post/AddPost", formDataContent).Result;
                 if (response.StatusCode == HttpStatusCode.OK)
                 {
-                    return RedirectToAction("ShowPosts", "Post");
+                    return RedirectToAction("AddPostCategory", "Post");
                 }
                 else
                 {
@@ -163,7 +163,7 @@ namespace EFcoreMVC.Controllers
                 var response = _http.PostAsync("Post/AddPost", formDataContent).Result;
                 if (response.StatusCode == HttpStatusCode.OK)
                 {
-                    return RedirectToAction("ShowPosts", "Post");
+                    return RedirectToAction("AddPostCategory", "Post");
                 }
                 else
                 {
@@ -181,6 +181,17 @@ namespace EFcoreMVC.Controllers
             var catList = response.Content.ReadAsAsync<IEnumerable<PostModel>>().Result;
             return View(catList);
         }
+
+        [HttpGet]
+        public IActionResult LoadPosts()
+        {
+            // IEnumerable<PostModel> catList;
+            var _http = client.CreateClient("apiClient");
+            var response = _http.GetAsync("Post/ShowPost").Result;
+            var catList = response.Content.ReadAsAsync<IEnumerable<PostModel>>().Result;
+            return Json(catList);
+        }
+
         [HttpGet]
         public IActionResult GetPostByID(int id)
         {
@@ -254,7 +265,7 @@ namespace EFcoreMVC.Controllers
             _http.DefaultRequestHeaders.Authorization =
             new AuthenticationHeaderValue("Bearer", cookieToken);
             var response = _http.DeleteAsync("Post/DeletePost/" + id).Result;
-            var postResponse = _http.DeleteAsync("Post/DeletePostFromPostCategoryModel/"+id).Result;
+            var postResponse = _http.DeleteAsync("Post/DeletePostFromPostCategoryModel/" + id).Result;
             if (response.StatusCode == HttpStatusCode.OK)
             {
                 return RedirectToAction("ShowPosts", "Post");
@@ -279,7 +290,29 @@ namespace EFcoreMVC.Controllers
             var _http = client.CreateClient("apiClient");
             _http.DefaultRequestHeaders.Authorization =
             new AuthenticationHeaderValue("Bearer", cookieToken);
-            var response = _http.PostAsJsonAsync("Post/DeleteCategoryPost",model).Result;
+            var response = _http.PostAsJsonAsync("Post/DeleteCategoryPost", model).Result;
+            if (response.StatusCode == HttpStatusCode.OK)
+            {
+                return RedirectToAction("ShowPosts", "Post");
+            }
+            else
+            {
+                return RedirectToAction("PageNotFound", "Access");
+            }
+        }
+        [HttpGet]
+        public IActionResult AddPostCategory()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult AddPostCategory(APostCategoryModel model)
+        {
+            var cookieToken = HttpContext.User.Claims.First(c => c.Type == "_token").Value;
+            var _http = client.CreateClient("apiClient");
+            _http.DefaultRequestHeaders.Authorization = 
+            new AuthenticationHeaderValue("Bearer",cookieToken);
+            var response = _http.PostAsJsonAsync("Post/AddPostCategory",model).Result;
             if (response.StatusCode == HttpStatusCode.OK)
             {
                 return RedirectToAction("ShowPosts", "Post");

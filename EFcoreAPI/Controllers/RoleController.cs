@@ -26,9 +26,18 @@ namespace EFcoreAPI.Controllers
         [Authorize(Roles = "Admin")]
         public IActionResult Insert(RoleModel rModel)
         {
-            role.InsertIntoTable(rModel);
-            role.Save();
-            return Ok(HttpStatusCode.OK);
+            var roleData = role.GetAllFromTable();
+            var roleExists = roleData.Where(x => x.RoleName == rModel.RoleName).FirstOrDefault();
+            if (roleExists == null)
+            {
+                role.InsertIntoTable(rModel);
+                role.Save();
+                return Ok(HttpStatusCode.OK);
+            }
+            else
+            {
+                return BadRequest();
+            }
         }
 
         [HttpGet("ShowAll")]

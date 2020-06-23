@@ -1,12 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "z9pjv3wgnNynynHglaq77SLVOA5FDt2IifZZUoBI6I7BIhEEAmah1G681sprRIcbiJJ+yDcdU8Wc38jarPoyWA==",
+  "dgSpecHash": "AXzKO3mY4XXvFan/ocmdUddcJd/vxbsGN0QBM4jOj0DTxsc2hyXDsrRAOohspv/Q/ewwurTo+8vpCXqIjsHlmA==",
   "success": true,
-  "projectFilePath": "E:\\EFcore\\EFCoreAPI\\EFcoreAPI.csproj",
+  "projectFilePath": "E:\\EFcore\\EFcoreAPI\\EFcoreAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\yoges\\.nuget\\packages\\automapper\\9.0.0\\automapper.9.0.0.nupkg.sha512",
     "C:\\Users\\yoges\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\7.0.0\\automapper.extensions.microsoft.dependencyinjection.7.0.0.nupkg.sha512",
+    "C:\\Users\\yoges\\.nuget\\packages\\efcore.bulkextensions\\3.1.1\\efcore.bulkextensions.3.1.1.nupkg.sha512",
     "C:\\Users\\yoges\\.nuget\\packages\\entityframework\\5.0.0\\entityframework.5.0.0.nupkg.sha512",
+    "C:\\Users\\yoges\\.nuget\\packages\\fastmember\\1.5.0\\fastmember.1.5.0.nupkg.sha512",
     "C:\\Users\\yoges\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\3.1.4\\microsoft.aspnetcore.authentication.jwtbearer.3.1.4.nupkg.sha512",
     "C:\\Users\\yoges\\.nuget\\packages\\microsoft.aspnetcore.html.abstractions\\2.2.0\\microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\yoges\\.nuget\\packages\\microsoft.aspnetcore.jsonpatch\\3.1.4\\microsoft.aspnetcore.jsonpatch.3.1.4.nupkg.sha512",
@@ -23,7 +25,7 @@
     "C:\\Users\\yoges\\.nuget\\packages\\microsoft.codeanalysis.razor\\3.1.0\\microsoft.codeanalysis.razor.3.1.0.nupkg.sha512",
     "C:\\Users\\yoges\\.nuget\\packages\\microsoft.codeanalysis.workspaces.common\\3.3.1\\microsoft.codeanalysis.workspaces.common.3.3.1.nupkg.sha512",
     "C:\\Users\\yoges\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
-    "C:\\Users\\yoges\\.nuget\\packages\\microsoft.data.sqlclient\\1.0.19269.1\\microsoft.data.sqlclient.1.0.19269.1.nupkg.sha512",
+    "C:\\Users\\yoges\\.nuget\\packages\\microsoft.data.sqlclient\\1.1.1\\microsoft.data.sqlclient.1.1.1.nupkg.sha512",
     "C:\\Users\\yoges\\.nuget\\packages\\microsoft.data.sqlite.core\\3.1.3\\microsoft.data.sqlite.core.3.1.3.nupkg.sha512",
     "C:\\Users\\yoges\\.nuget\\packages\\microsoft.dotnet.platformabstractions\\3.1.3\\microsoft.dotnet.platformabstractions.3.1.3.nupkg.sha512",
     "C:\\Users\\yoges\\.nuget\\packages\\microsoft.entityframeworkcore\\3.1.3\\microsoft.entityframeworkcore.3.1.3.nupkg.sha512",
@@ -182,12 +184,6 @@
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512"
   ],
   "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file E:\\EFcore\\EFCoreAPI\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    },
     {
       "code": "NU1701",
       "level": "Warning",

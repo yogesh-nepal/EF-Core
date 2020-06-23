@@ -26,6 +26,12 @@ namespace EFcoreAPI.Controllers
         [Authorize(Roles="Admin")]
         public IActionResult Insert(UserWithRoleModel model)
         {
+            var data = iUserRole.GetAllFromTable();
+            var dataexixts = data.Where(x=>x.UserID==model.UserID).FirstOrDefault();
+            if (dataexixts!=null)
+            {
+                return BadRequest();
+            }
             iUserRole.InsertRoleForUser(model);
             iUserRole.Save();
             return Ok(HttpStatusCode.OK);

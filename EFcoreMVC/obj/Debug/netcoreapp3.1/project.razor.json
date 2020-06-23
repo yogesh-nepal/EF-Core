@@ -20521,6 +20521,16 @@
   "RootNamespace": "EFcoreMVC",
   "Documents": [
     {
+      "FilePath": "e:\\EFcore\\EFcoreMVC\\Views\\Post\\AddPostCategory.cshtml",
+      "TargetPath": "Views\\Post\\AddPostCategory.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "e:\\EFcore\\EFcoreMVC\\Views\\User\\ShowUser.cshtml",
+      "TargetPath": "Views\\User\\ShowUser.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "e:\\EFcore\\EFcoreMVC\\Views\\Menu\\GetMenuDetailsByID.cshtml",
       "TargetPath": "Views\\Menu\\GetMenuDetailsByID.cshtml",
       "FileKind": "mvc"
